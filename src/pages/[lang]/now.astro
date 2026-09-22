@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ChatButton from '../../components/ChatButton.astro';
 import { SITE } from '../../site';
 import { path, formatDate, staticLangPaths, type Lang } from '../../i18n/ui';
 
@@ -53,7 +54,7 @@ const copy = {
           ))
         }
       </dl>
-      <div class="btn-row"><a class="btn btn-primary" href={path(lang, 'contact')}>{copy.cta}</a></div>
+      <div class="btn-row"><ChatButton label={copy.cta} /></div>
       <p class="hint">{copy.note}</p>
     </div>
     </div>

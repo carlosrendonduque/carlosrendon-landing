@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ChatButton from '../../components/ChatButton.astro';
 import { SITE } from '../../site';
 import { path, staticLangPaths, type Lang } from '../../i18n/ui';
 import { personJsonLd } from '../../data/person';
@@ -65,7 +66,7 @@ const jsonLd = {
         {copy.story.map((p) => <p>{p}</p>)}
         <h2 class="edu-title">{copy.eduTitle}</h2>
         <ul>{copy.edu.map((e) => <li>{e}</li>)}</ul>
-        <div class="btn-row"><a class="btn btn-primary" href={path(lang, 'contact')}>{copy.cta}</a></div>
+        <div class="btn-row"><ChatButton label={copy.cta} /></div>
       </div>
       <picture>
         <source srcset="/images/carlos.webp" type="image/webp" />

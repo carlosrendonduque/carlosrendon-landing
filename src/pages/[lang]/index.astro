@@ -1,8 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import ChatButton from '../../components/ChatButton.astro';
 import { SITE } from '../../site';
-import { path, staticLangPaths, type Lang } from '../../i18n/ui';
+import { path, ui, staticLangPaths, type Lang } from '../../i18n/ui';
 import { personJsonLd } from '../../data/person';
 
 export const getStaticPaths = staticLangPaths;
@@ -17,7 +18,6 @@ const copy = {
     human: 'the human decides.',
     lede: 'I build Salesforce systems for the health and public sectors, and AI tools where a person makes the final call.',
     available: 'Available for contracts now',
-    ctaPrimary: 'Get in touch',
     photoAlt: 'Carlos Rendón smiling in his home studio, wearing headphones and playing a guitar.',
     routesTitle: 'What brings you here?',
     routes: [
@@ -45,7 +45,6 @@ const copy = {
     human: 'el humano decide.',
     lede: 'Construyo sistemas Salesforce para los sectores salud y público, y herramientas de IA donde una persona tiene la última palabra.',
     available: 'Disponible para contratos desde ya',
-    ctaPrimary: 'Hablemos',
     photoAlt: 'Carlos Rendón sonriendo en su estudio casero, con audífonos y tocando una guitarra.',
     routesTitle: '¿Qué te trae por aquí?',
     routes: [
@@ -80,7 +79,7 @@ const copy = {
         <p class="lede">{copy.lede}</p>
         <p class="availability"><span aria-hidden="true"></span>{copy.available}</p>
         <div class="btn-row">
-          <a class="btn btn-primary" href={path(lang, 'contact')}>{copy.ctaPrimary}</a>
+          <ChatButton label={ui[lang].chat.cta} />
           <a class="btn btn-ghost" href={SITE.linkedin}>LinkedIn</a>
         </div>
       </div>

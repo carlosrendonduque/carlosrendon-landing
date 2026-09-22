@@ -5,7 +5,7 @@ export const langs = Object.keys(languages) as Lang[];
 export const htmlLang: Record<Lang, string> = { en: 'en-AU', es: 'es-CO' };
 export const ogLocale: Record<Lang, string> = { en: 'en_AU', es: 'es_CO' };
 
-export type Page = '' | 'work' | 'consulting' | 'lab' | 'art' | 'now' | 'about' | 'contact';
+export type Page = '' | 'work' | 'consulting' | 'lab' | 'art' | 'now' | 'about';
 
 export const path = (lang: Lang, page: Page = '') => `/${lang}/${page ? `${page}/` : ''}`;
 
@@ -21,6 +21,10 @@ export const ui = {
       art: 'Art',
       about: 'About',
       contact: 'Contact',
+    },
+    chat: {
+      cta: 'Tell me about your project',
+      greeting: 'Hi, I’m Carlos’s assistant. What are you working on?',
     },
     langSwitch: 'Leer en español',
     footer: {
@@ -52,6 +56,10 @@ export const ui = {
       art: 'Arte',
       about: 'Sobre mí',
       contact: 'Contacto',
+    },
+    chat: {
+      cta: 'Cuéntame tu proyecto',
+      greeting: 'Hola, soy el asistente de Carlos. ¿En qué estás trabajando?',
     },
     langSwitch: 'Read in English',
     footer: {

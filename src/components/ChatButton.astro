@@ -1,0 +1,14 @@
+---
+import { SITE } from '../site';
+
+interface Props {
+  label: string;
+  variant?: 'primary' | 'ghost' | 'link';
+}
+const { label, variant = 'primary' } = Astro.props;
+const cls = variant === 'link' ? 'chat-link' : `btn btn-${variant}`;
+// Opens the Conserje chat; falls back to email if the widget failed to load.
+const onclick = `window.Conserje ? window.Conserje.open() : (location.href = 'mailto:${SITE.email}')`;
+---
+
+<button type="button" class={cls} onclick={onclick}>{label}</button>

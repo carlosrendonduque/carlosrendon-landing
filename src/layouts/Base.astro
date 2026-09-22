@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE } from '../site';
+import ChatButton from '../components/ChatButton.astro';
 import { ui, langs, path, htmlLang, ogLocale, formatDate, type Lang, type Page } from '../i18n/ui';
 
 interface Props {
@@ -23,7 +24,6 @@ const navItems: { page: Page; label: string }[] = [
   { page: 'lab', label: t.nav.lab },
   { page: 'art', label: t.nav.art },
   { page: 'about', label: t.nav.about },
-  { page: 'contact', label: t.nav.contact },
 ];
 ---
 
@@ -71,6 +71,7 @@ const navItems: { page: Page; label: string }[] = [
                 </li>
               ))
             }
+            <li><ChatButton label={t.nav.contact} variant="link" /></li>
           </ul>
         </nav>
         <a class="lang-switch" href={path(other, page)} hreflang={htmlLang[other]} lang={htmlLang[other]}>
@@ -97,5 +98,16 @@ const navItems: { page: Page; label: string }[] = [
         </p>
       </div>
     </footer>
+    <!-- Conserje chat widget: a one-shot IIFE that reads document.currentScript, so it lives here, once per document. -->
+    <script
+      is:inline
+      src="/conserje.js"
+      data-endpoint="http://localhost:8000/chat"
+      data-site="carlosrendon"
+      data-title="Carlos Rendón"
+      data-greeting={t.chat.greeting}
+      data-locale={lang}
+      data-accent="#b8291f"
+      defer></script>
   </body>
 </html>

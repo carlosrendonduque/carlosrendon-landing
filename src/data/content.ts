@@ -17,6 +17,18 @@ export interface Project {
 
 export const labProjects: Project[] = [
   {
+    id: 'conserje',
+    name: 'Conserje',
+    tagline: { en: 'A chat that qualifies leads, routed through n8n', es: 'Un chat que califica leads y los enruta con n8n' },
+    body: {
+      en: 'The chat on this site. A short conversation instead of a form: it extracts a brief, scores it, and hands it to n8n workflows for notifications, email and CRM.',
+      es: 'El chat de este sitio. Una conversación corta en lugar de un formulario: extrae un brief, lo califica y lo entrega a flujos de n8n para avisos, correo y CRM.',
+    },
+    stack: ['n8n', 'PHP', 'Vanilla JS', 'Claude'],
+    status: { en: 'Open source', es: 'Código abierto' },
+    repo: 'https://github.com/carlosrendonduque/conserje',
+  },
+  {
     id: 'workbrain',
     name: 'WorkBrain',
     tagline: { en: 'Project memory for AI coding assistants', es: 'Memoria de proyecto para asistentes de código' },

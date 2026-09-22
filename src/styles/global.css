@@ -523,3 +523,28 @@ section + section {
 .prose ul.tags {
   padding-left: 0;
 }
+
+/* Chat triggers are buttons (they open the Conserje widget), styled like the links around them. */
+button.btn {
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink);
+}
+button.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.chat-link {
+  font: inherit;
+  font-size: 0.95rem;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0.35rem 0;
+  min-height: 24px;
+  cursor: pointer;
+}
+.chat-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}

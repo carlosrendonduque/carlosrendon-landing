@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { artworks } from '../../data/content';
-import { mailto } from '../../site';
+import ChatButton from '../../components/ChatButton.astro';
 import { ui, staticLangPaths, type Lang } from '../../i18n/ui';
 
 export const getStaticPaths = staticLangPaths;
@@ -24,7 +24,6 @@ const copy = {
     collabTitle: 'Let’s make something',
     collab: 'Illustrators, book artists, musicians, vocalists, narrative game studios, festivals and universities.',
     collabCta: 'Propose a collaboration',
-    collabSubject: 'Art collaboration',
   },
   es: {
     title: 'Arte',
@@ -41,7 +40,6 @@ const copy = {
     collabTitle: 'Hagamos algo',
     collab: 'Ilustradores, artistas del libro, músicos, vocalistas, estudios de juegos narrativos, festivales y universidades.',
     collabCta: 'Proponer una colaboración',
-    collabSubject: 'Colaboración artística',
   },
 }[lang];
 ---
@@ -100,7 +98,7 @@ const copy = {
       <div class="callout measure">
         <h2 id="collab-title">{copy.collabTitle}</h2>
         <p>{copy.collab}</p>
-        <a class="btn btn-primary" href={mailto(copy.collabSubject)}>{copy.collabCta}</a>
+        <ChatButton label={copy.collabCta} />
       </div>
     </div>
   </section>

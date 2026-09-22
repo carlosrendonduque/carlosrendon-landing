@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://carlosrendon.co',
   trailingSlash: 'always',
+  server: { port: 5173 },
   i18n: {
     locales: ['en', 'es'],
     defaultLocale: 'en',

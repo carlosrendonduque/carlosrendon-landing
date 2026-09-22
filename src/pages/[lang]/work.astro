@@ -1,8 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ChatButton from '../../components/ChatButton.astro';
 import { cases, path as career, certifications } from '../../data/content';
 import { SITE } from '../../site';
-import { path, staticLangPaths, type Lang } from '../../i18n/ui';
+import { staticLangPaths, type Lang } from '../../i18n/ui';
 
 export const getStaticPaths = staticLangPaths;
 const lang = Astro.params.lang as Lang;
@@ -45,7 +46,7 @@ const copy = {
       <p class="lede">{copy.lede}</p>
       <p class="machine">{copy.looking}</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href={path(lang, 'contact') + '#role'}>{copy.ctaPrimary}</a>
+        <ChatButton label={copy.ctaPrimary} />
         <a class="btn btn-ghost" href={SITE.linkedin}>LinkedIn</a>
       </div>
     </div>
