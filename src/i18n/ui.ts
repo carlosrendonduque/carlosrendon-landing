@@ -5,7 +5,7 @@ export const langs = Object.keys(languages) as Lang[];
 export const htmlLang: Record<Lang, string> = { en: 'en-AU', es: 'es-CO' };
 export const ogLocale: Record<Lang, string> = { en: 'en_AU', es: 'es_CO' };
 
-export type Page = '' | 'work' | 'consulting' | 'lab' | 'art' | 'now' | 'about' | 'contact' | 'cv';
+export type Page = '' | 'work' | 'consulting' | 'lab' | 'art' | 'now' | 'about' | 'contact';
 
 export const path = (lang: Lang, page: Page = '') => `/${lang}/${page ? `${page}/` : ''}`;
 
@@ -27,7 +27,6 @@ export const ui = {
       line: 'AI proposes, the human decides.',
       updated: 'Updated',
       now: 'What I’m doing now',
-      cv: 'CV',
     },
     newsletter: {
       title: 'A monthly letter',
@@ -59,7 +58,6 @@ export const ui = {
       line: 'La IA propone, el humano decide.',
       updated: 'Actualizado',
       now: 'En qué ando ahora',
-      cv: 'CV',
     },
     newsletter: {
       title: 'Una carta al mes',

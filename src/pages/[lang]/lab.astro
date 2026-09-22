@@ -3,40 +3,34 @@ import Base from '../../layouts/Base.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { labProjects } from '../../data/content';
 import { SITE } from '../../site';
-import { path, staticLangPaths, type Lang } from '../../i18n/ui';
+import { staticLangPaths, type Lang } from '../../i18n/ui';
 
 export const getStaticPaths = staticLangPaths;
 const lang = Astro.params.lang as Lang;
 
-const featured = labProjects.slice(0, 4);
-const tools = labProjects.slice(4);
+const ai = labProjects.slice(0, 4);
+const story = labProjects.slice(4);
 
 const copy = {
   en: {
     title: 'Lab',
-    description: 'Applied-AI tools and open-source projects: an MCP server with hybrid retrieval, a human-in-the-loop control layer for agents, a multi-model editor and more.',
+    description: 'Applied-AI tools and open-source projects by Carlos Rendón.',
     eyebrow: 'Lab',
     h1: 'Tools I build and use',
-    lede: 'Independent applied-AI projects. I build on top of existing models rather than training them, and every tool here follows the same rule: the model suggests, a person decides.',
-    featuredTitle: 'Applied AI',
-    toolsTitle: 'Tools for storytelling',
-    toolsLede: 'Content-agnostic components built for my own interactive works, published so others can use them.',
+    lede: 'Built on existing models, not trained ones. Same rule everywhere: the model suggests, a person decides.',
+    aiTitle: 'Applied AI',
+    storyTitle: 'For storytelling',
     github: 'More on GitHub',
-    consult: 'Want something like this for your team?',
-    consultCta: 'See consulting',
   },
   es: {
     title: 'Laboratorio',
-    description: 'Herramientas de IA aplicada y proyectos de código abierto: un servidor MCP con recuperación híbrida, una capa de control humano para agentes, un editor multi-modelo y más.',
+    description: 'Herramientas de IA aplicada y proyectos de código abierto de Carlos Rendón.',
     eyebrow: 'Laboratorio',
     h1: 'Herramientas que construyo y uso',
-    lede: 'Proyectos independientes de IA aplicada. Construyo sobre modelos existentes en lugar de entrenarlos, y todas estas herramientas siguen la misma regla: el modelo sugiere, una persona decide.',
-    featuredTitle: 'IA aplicada',
-    toolsTitle: 'Herramientas para narrar',
-    toolsLede: 'Componentes agnósticos al contenido, hechos para mis propias obras interactivas y publicados para que otros los usen.',
+    lede: 'Sobre modelos existentes, no entrenados por mí. La misma regla en todas: el modelo sugiere, una persona decide.',
+    aiTitle: 'IA aplicada',
+    storyTitle: 'Para narrar',
     github: 'Más en GitHub',
-    consult: '¿Quieres algo así para tu equipo?',
-    consultCta: 'Ver consultoría',
   },
 }[lang];
 ---
@@ -50,33 +44,18 @@ const copy = {
     </div>
   </section>
 
-  <section aria-labelledby="featured-title">
+  <section aria-labelledby="ai-title">
     <div class="wrap">
-      <h2 id="featured-title">{copy.featuredTitle}</h2>
-      <div class="grid wide">
-        {featured.map((p) => <ProjectCard project={p} lang={lang} detailed />)}
-      </div>
+      <h2 id="ai-title">{copy.aiTitle}</h2>
+      <div class="grid">{ai.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
     </div>
   </section>
 
-  <section aria-labelledby="tools-title">
+  <section aria-labelledby="story-title">
     <div class="wrap">
-      <h2 id="tools-title">{copy.toolsTitle}</h2>
-      <p class="lede">{copy.toolsLede}</p>
-      <div class="grid">
-        {tools.map((p) => <ProjectCard project={p} lang={lang} />)}
-      </div>
-      <div class="btn-row">
-        <a class="btn btn-ghost" href={SITE.github}>{copy.github}</a>
-        <a class="btn btn-primary" href={path(lang, 'consulting')}>{copy.consultCta}</a>
-      </div>
-      <p class="hint">{copy.consult}</p>
+      <h2 id="story-title">{copy.storyTitle}</h2>
+      <div class="grid">{story.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
+      <div class="btn-row"><a class="btn btn-ghost" href={SITE.github}>{copy.github}</a></div>
     </div>
   </section>
 </Base>
-
-<style>
-  .wide {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr));
-  }
-</style>

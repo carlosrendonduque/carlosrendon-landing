@@ -1,21 +1,12 @@
 # Carlos Rendón
 
-> AI proposes, the human decides. Carlos Rendón is an AI engineer for regulated enterprise platforms, based in Brisbane, Australia (remote or hybrid). Twenty years building software; since 2020 Salesforce and OmniStudio for health, government and insurance; now applied-AI tools and agents where a person stays in charge. He is also a writer of transmedia fiction and an AI-assisted music producer. Bilingual: English and Spanish. Available for contracts now.
+> AI proposes, the human decides. Carlos Rendón builds Salesforce systems for the health and public sectors, and AI tools where a person makes the final call. Based in Brisbane, Australia; remote or hybrid. Also a writer of transmedia fiction and an AI-assisted music producer. English and Spanish. Available for contracts now.
 
 Contact: carlos.rendon.duque@gmail.com · https://www.linkedin.com/in/carlosrendonduque/ · https://github.com/carlosrendonduque
 
-## Hire or engage
-- [Work](https://carlosrendon.co/en/work/): enterprise case studies (a national counselling platform, a state police service online reporting and a government services contractor, an insurer), experience and 8 Salesforce certifications.
-- [CV](https://carlosrendon.co/en/cv/): full curriculum vitae.
-- [Consulting](https://carlosrendon.co/en/consulting/): free 30-minute "unoffice hours", a fixed-price AI & Salesforce readiness review (AUD 2,500, two weeks), and scoped build and integration work.
-
-## Applied AI
-- [Lab](https://carlosrendon.co/en/lab/): WorkBrain (MCP server with hybrid retrieval and per-client isolation, in daily use), Bayzara (human-in-the-loop control layer for AI agents, prototype), Conato (multi-model writing editor where the model only proposes), dataset-preflight (open-source check of a data report against its dataset), calamus and tonotopia (open-source narrative reader and sound engine).
-
-## Art
-- [Art](https://carlosrendon.co/en/art/): Toma 1024 (transmedia Master's thesis, in development), Nullheim, Fragmentado and Parallax Story (interactive fiction), and music produced with AI in the chain (project: Koombia Mate).
-
-## About
-- [About](https://carlosrendon.co/en/about/): from Medellín to Brisbane; systems engineering, psychology (human-computer interaction), and a Master's in Literary Creation and Digital Narratives (Universidad Icesi).
-- [Now](https://carlosrendon.co/en/now/): current work and availability.
-- Spanish version of every page: replace /en/ with /es/.
+- [Work](https://carlosrendon.co/en/work/): Salesforce and OmniStudio for health, public sector and insurance; 8 Salesforce certifications. CV on request.
+- [Consulting](https://carlosrendon.co/en/consulting/): free 30-minute unoffice hours; readiness review (AUD 2,500, two weeks); build and integrate.
+- [Lab](https://carlosrendon.co/en/lab/): WorkBrain (MCP memory server), Bayzara (agents that ask before they act), Conato (editor where the model only proposes), dataset-preflight, calamus, tonotopia.
+- [Art](https://carlosrendon.co/en/art/): Toma 1024 (Master's thesis, in development), Nullheim, Fragmentado, Parallax Story, and music (Koombia Mate).
+- [About](https://carlosrendon.co/en/about/) · [Now](https://carlosrendon.co/en/now/)
+- Spanish: replace /en/ with /es/.

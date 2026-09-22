@@ -11,45 +11,39 @@ const copy = {
   en: {
     title: 'About',
     description: 'Carlos Rendón: engineer, writer and music producer from Medellín, based in Brisbane.',
-    h1: 'Twenty years translating between systems and people',
+    h1: 'Between systems and people',
     photoAlt: 'Carlos Rendón in his home studio with headphones and a guitar.',
     story: [
-      'I started writing software in Medellín in 2003, on payroll systems that had to follow Colombian labour law to the letter. In 2010 I co-founded a small software consultancy and ran it for eight years, scoping work with clients and leading the team that delivered it.',
-      'Then I moved to Brisbane. I rebuilt my career here as a software engineer, then specialised in Salesforce and OmniStudio, and since 2020 I’ve worked on platforms for insurance, disability support, policing and national health services.',
-      'Along the way I studied psychology, with a focus on how people use computers, and started a Master’s in Literary Creation and Digital Narratives. That is where the pieces joined up: the same questions about trust and control show up in a clinical platform, in an AI agent and in a story whose narrator is a machine.',
-      'Today I build applied-AI tools on top of existing models, write transmedia fiction, and produce music in a small home studio. The rule I keep across all three: AI proposes, the human decides.',
+      'I’m from Medellín and live in Brisbane. I started on payroll systems, co-founded a software consultancy, and now build Salesforce platforms for the health and public sectors.',
+      'I also studied psychology, focused on how people use computers, and I’m doing a Master’s in Literary Creation and Digital Narratives. The same question runs through all of it: who decides, the person or the machine?',
+      'So I build AI tools, write fiction and make music, with one rule: AI proposes, the human decides.',
     ],
-    eduTitle: 'Education',
+    eduTitle: 'Study',
     edu: [
-      'Master of Literary Creation and Digital Narratives, Universidad Icesi, Cali (in progress)',
-      'Bachelor of Psychology, human-computer interaction focus, Corporación Universitaria UNITEC (2024)',
-      'Master’s in Digital Business & Lean Startup, IEBS (2022)',
-      'Bachelor of Systems Engineering, Universidad de Antioquia, Medellín (2002)',
+      'Master’s in Literary Creation and Digital Narratives, Universidad Icesi (in progress)',
+      'Psychology, human-computer interaction',
+      'Master’s in Digital Business & Lean Startup, IEBS',
+      'Systems Engineering, Universidad de Antioquia',
     ],
-    langTitle: 'Languages',
-    langs: 'Spanish (native) and English (full professional).',
     cta: 'Get in touch',
   },
   es: {
     title: 'Sobre mí',
     description: 'Carlos Rendón: ingeniero, escritor y productor musical de Medellín, radicado en Brisbane.',
-    h1: 'Veinte años traduciendo entre sistemas y personas',
+    h1: 'Entre sistemas y personas',
     photoAlt: 'Carlos Rendón en su estudio casero con audífonos y una guitarra.',
     story: [
-      'Empecé a escribir software en Medellín en 2003, en sistemas de nómina que tenían que cumplir al pie de la letra la legislación laboral colombiana. En 2010 cofundé una pequeña consultora de software y la dirigí durante ocho años, definiendo proyectos con los clientes y liderando el equipo que los entregaba.',
-      'Después me mudé a Brisbane. Reconstruí mi carrera aquí como ingeniero de software, luego me especialicé en Salesforce y OmniStudio, y desde 2020 he trabajado en plataformas de seguros, apoyo a la discapacidad, policía y servicios nacionales de salud.',
-      'En el camino estudié psicología, con énfasis en cómo las personas usan los computadores, y empecé una Maestría en Creación Literaria y Narrativas Digitales. Ahí se juntaron las piezas: las mismas preguntas sobre confianza y control aparecen en una plataforma clínica, en un agente de IA y en una historia cuyo narrador es una máquina.',
-      'Hoy construyo herramientas de IA aplicada sobre modelos existentes, escribo ficción transmedia y produzco música en un pequeño estudio en casa. La regla que sostengo en las tres: la IA propone, el humano decide.',
+      'Soy de Medellín y vivo en Brisbane. Empecé en sistemas de nómina, cofundé una consultora de software y hoy construyo plataformas Salesforce para los sectores salud y público.',
+      'También estudié psicología, con énfasis en cómo las personas usan los computadores, y hago una Maestría en Creación Literaria y Narrativas Digitales. La misma pregunta atraviesa todo: ¿quién decide, la persona o la máquina?',
+      'Por eso construyo herramientas de IA, escribo ficción y hago música, con una regla: la IA propone, el humano decide.',
     ],
-    eduTitle: 'Formación',
+    eduTitle: 'Estudios',
     edu: [
-      'Maestría en Creación Literaria y Narrativas Digitales, Universidad Icesi, Cali (en curso)',
-      'Psicología con énfasis en interacción humano-computador, Corporación Universitaria UNITEC (2024)',
-      'Máster en Negocio Digital y Lean Startup, IEBS (2022)',
-      'Ingeniería de Sistemas, Universidad de Antioquia, Medellín (2002)',
+      'Maestría en Creación Literaria y Narrativas Digitales, Universidad Icesi (en curso)',
+      'Psicología, interacción humano-computador',
+      'Máster en Negocio Digital y Lean Startup, IEBS',
+      'Ingeniería de Sistemas, Universidad de Antioquia',
     ],
-    langTitle: 'Idiomas',
-    langs: 'Español (nativo) e inglés (profesional completo).',
     cta: 'Hablemos',
   },
 }[lang];
@@ -69,24 +63,14 @@ const jsonLd = {
       <div class="prose">
         <h1>{copy.h1}</h1>
         {copy.story.map((p) => <p>{p}</p>)}
+        <h2 class="edu-title">{copy.eduTitle}</h2>
+        <ul>{copy.edu.map((e) => <li>{e}</li>)}</ul>
         <div class="btn-row"><a class="btn btn-primary" href={path(lang, 'contact')}>{copy.cta}</a></div>
       </div>
       <picture>
         <source srcset="/images/carlos.webp" type="image/webp" />
         <img src="/images/carlos.jpg" alt={copy.photoAlt} width="1000" height="1173" loading="lazy" class="about-photo" />
       </picture>
-    </div>
-  </section>
-  <section>
-    <div class="wrap two-col">
-      <div>
-        <h2>{copy.eduTitle}</h2>
-        <ul class="prose">{copy.edu.map((e) => <li>{e}</li>)}</ul>
-      </div>
-      <div>
-        <h2>{copy.langTitle}</h2>
-        <p>{copy.langs}</p>
-      </div>
     </div>
   </section>
 </Base>
@@ -106,9 +90,8 @@ const jsonLd = {
   .about-photo {
     border-radius: 14px;
   }
-  .two-col {
-    display: grid;
-    gap: 2rem 4rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  .edu-title {
+    font-size: 1.4rem;
+    margin-top: 2rem;
   }
 </style>

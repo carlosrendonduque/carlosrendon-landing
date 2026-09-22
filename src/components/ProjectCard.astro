@@ -5,31 +5,21 @@ import { ui, type Lang } from '../i18n/ui';
 interface Props {
   project: Project;
   lang: Lang;
-  detailed?: boolean;
 }
-const { project, lang, detailed = false } = Astro.props;
+const { project, lang } = Astro.props;
 const t = ui[lang];
 ---
 
 <article class="card" id={project.id}>
-  <span class="status">{project.status[lang]} · {project.year}</span>
+  <span class="status">{project.status[lang]}</span>
   <h3>{project.name}</h3>
   <p><strong>{project.tagline[lang]}</strong></p>
   <p>{project.body[lang]}</p>
-  {
-    detailed && project.points[lang].length > 0 && (
-      <ul class="prose">
-        {project.points[lang].map((p) => (
-          <li>{p}</li>
-        ))}
-      </ul>
-    )
-  }
   <ul class="tags" aria-label="Stack">
     {project.stack.map((s) => <li>{s}</li>)}
   </ul>
   <div class="card-foot">
-    {project.repo && <a class="card-link" href={project.repo}>{t.repo}</a>}
+    {project.repo && <a class="card-link" href={project.repo}>{t.repo}<span class="visually-hidden">: {project.name}</span></a>}
     {project.live && <a class="card-link" href={project.live}>{t.live}</a>}
     {!project.repo && !project.live && <span class="machine">{t.private}</span>}
   </div>

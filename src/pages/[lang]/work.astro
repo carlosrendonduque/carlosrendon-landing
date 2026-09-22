@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { cases, experience, certifications } from '../../data/content';
+import { cases, path as career, certifications } from '../../data/content';
+import { SITE } from '../../site';
 import { path, staticLangPaths, type Lang } from '../../i18n/ui';
 
 export const getStaticPaths = staticLangPaths;
@@ -9,43 +10,33 @@ const lang = Astro.params.lang as Lang;
 const copy = {
   en: {
     title: 'Work',
-    description: 'Salesforce and OmniStudio engineering for health, government and insurance platforms: case studies, experience and certifications.',
-    eyebrow: 'Hire me for a role',
-    h1: 'Enterprise platforms where mistakes reach real people',
-    lede: 'I’ve spent twenty years building software, the last six on Salesforce and OmniStudio for health, government and insurance. I take a feature from ambiguous requirements to production, and I care about what happens after release: incidents, refreshes, handovers.',
+    description: 'Salesforce and OmniStudio engineering for the health and public sectors and insurance.',
+    eyebrow: 'Hire me',
+    h1: 'Salesforce where mistakes reach real people',
+    lede: 'Health, public sector and insurance platforms: from unclear requirements to production, and what comes after release.',
+    looking: 'Open to Salesforce, OmniStudio and applied-AI roles. Contract or permanent, remote or Brisbane.',
     ctaPrimary: 'Talk about a role',
-    ctaCv: 'View CV',
-    looking: 'Looking for: Salesforce, OmniStudio and applied-AI roles. Contract or permanent, remote or Brisbane.',
-    casesTitle: 'Case studies',
-    labels: { client: 'Client', role: 'Role', when: 'When', stack: 'Stack' },
-    expTitle: 'Experience',
-    certTitle: 'Certifications',
-    alsoTitle: 'Also',
-    also: [
-      'Australian and Colombian citizen, security cleared.',
-      'Bachelor of Systems Engineering (Universidad de Antioquia) and Psychology with a focus on human-computer interaction.',
-      'English (full professional) and Spanish (native).',
-    ],
+    ctaCv: 'Ask for my CV',
+    cvSubject: 'CV request',
+    casesTitle: 'Selected work',
+    pathTitle: 'The path so far',
+    certTitle: 'Salesforce certifications',
+    note: 'Australian and Colombian citizen · security cleared · English and Spanish',
   },
   es: {
     title: 'Trabajo',
-    description: 'Ingeniería Salesforce y OmniStudio para plataformas de salud, gobierno y seguros: casos, experiencia y certificaciones.',
-    eyebrow: 'Contratarme para un rol',
-    h1: 'Plataformas empresariales donde los errores le llegan a personas reales',
-    lede: 'Llevo veinte años construyendo software, los últimos seis en Salesforce y OmniStudio para salud, gobierno y seguros. Llevo una funcionalidad desde requerimientos ambiguos hasta producción, y me importa lo que pasa después del release: incidentes, refresh de ambientes, traspasos.',
+    description: 'Ingeniería Salesforce y OmniStudio para los sectores salud, público y seguros.',
+    eyebrow: 'Contratarme',
+    h1: 'Salesforce donde los errores le llegan a personas reales',
+    lede: 'Plataformas de salud, sector público y seguros: desde requerimientos poco claros hasta producción, y lo que viene después del release.',
+    looking: 'Abierto a roles de Salesforce, OmniStudio e IA aplicada. Contrato o planta, remoto o en Brisbane.',
     ctaPrimary: 'Hablemos de un rol',
-    ctaCv: 'Ver CV',
-    looking: 'Busco: roles de Salesforce, OmniStudio e IA aplicada. Contrato o planta, remoto o en Brisbane.',
-    casesTitle: 'Casos',
-    labels: { client: 'Cliente', role: 'Rol', when: 'Cuándo', stack: 'Stack' },
-    expTitle: 'Experiencia',
-    certTitle: 'Certificaciones',
-    alsoTitle: 'Además',
-    also: [
-      'Ciudadano australiano y colombiano, con habilitación de seguridad.',
-      'Ingeniero de Sistemas (Universidad de Antioquia) y psicólogo con énfasis en interacción humano-computador.',
-      'Inglés (profesional completo) y español (nativo).',
-    ],
+    ctaCv: 'Pedir mi CV',
+    cvSubject: 'Solicitud de CV',
+    casesTitle: 'Trabajo seleccionado',
+    pathTitle: 'El recorrido',
+    certTitle: 'Certificaciones Salesforce',
+    note: 'Ciudadano australiano y colombiano · habilitación de seguridad · español e inglés',
   },
 }[lang];
 ---
@@ -59,7 +50,8 @@ const copy = {
       <p class="machine">{copy.looking}</p>
       <div class="btn-row">
         <a class="btn btn-primary" href={path(lang, 'contact') + '#role'}>{copy.ctaPrimary}</a>
-        <a class="btn btn-ghost" href={path(lang, 'cv')}>{copy.ctaCv}</a>
+        <a class="btn btn-ghost" href={`mailto:${SITE.email}?subject=${encodeURIComponent(copy.cvSubject)}`}>{copy.ctaCv}</a>
+        <a class="btn btn-ghost" href={SITE.linkedin}>LinkedIn</a>
       </div>
     </div>
   </section>
@@ -67,77 +59,87 @@ const copy = {
   <section aria-labelledby="cases-title">
     <div class="wrap">
       <h2 id="cases-title">{copy.casesTitle}</h2>
-      {
-        cases.map((c) => (
-          <article class="case" id={c.id}>
-            <h3>{c.title[lang]}</h3>
-            <dl class="tldr">
-              <dt>{copy.labels.client}</dt>
-              <dd>{c.client[lang]}</dd>
-              <dt>{copy.labels.role}</dt>
-              <dd>{c.role[lang]}</dd>
-              <dt>{copy.labels.when}</dt>
-              <dd>{c.period}</dd>
-              <dt>{copy.labels.stack}</dt>
-              <dd>
-                <ul class="tags">
-                  {c.stack.map((s) => (
-                    <li>{s}</li>
-                  ))}
-                </ul>
-              </dd>
-            </dl>
-            <div class="prose">
-              <p>{c.summary[lang]}</p>
-              <ul>
+      <div class="grid">
+        {
+          cases.map((c) => (
+            <article class="card" id={c.id}>
+              <span class="status">{c.sector[lang]}</span>
+              <h3>{c.title[lang]}</h3>
+              <ul class="points">
                 {c.points[lang].map((p) => (
                   <li>{p}</li>
                 ))}
               </ul>
-            </div>
-          </article>
-        ))
-      }
-    </div>
-  </section>
-
-  <section aria-labelledby="exp-title">
-    <div class="wrap">
-      <h2 id="exp-title">{copy.expTitle}</h2>
-      <ol class="timeline">
-        {
-          experience.map((e) => (
-            <li>
-              <span class="when">{e.when}</span>
-              <span class="what">
-                <strong>{e.role[lang]}</strong>
-                <span>{e.where}</span>
-              </span>
-            </li>
+              <ul class="tags card-foot">
+                {c.stack.map((s) => (
+                  <li>{s}</li>
+                ))}
+              </ul>
+            </article>
           ))
         }
-      </ol>
+      </div>
     </div>
   </section>
 
-  <section aria-labelledby="cert-title">
+  <section aria-labelledby="path-title">
     <div class="wrap two-col">
       <div>
-        <h2 id="cert-title">{copy.certTitle}</h2>
-        <ul class="prose">{certifications.map((c) => <li>{c}</li>)}</ul>
+        <h2 id="path-title">{copy.pathTitle}</h2>
+        <ol class="career">{career.map((step) => <li>{step[lang]}</li>)}</ol>
       </div>
       <div>
-        <h2>{copy.alsoTitle}</h2>
-        <ul class="prose">{copy.also.map((c) => <li>{c}</li>)}</ul>
+        <h2>{copy.certTitle}</h2>
+        <ul class="tags certs">{certifications.map((c) => <li>{c}</li>)}</ul>
+        <p class="machine note">{copy.note}</p>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
+  .points {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--muted);
+  }
+  .points li {
+    margin-bottom: 0.35rem;
+  }
   .two-col {
     display: grid;
     gap: 2rem 4rem;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  }
+  .career {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 2px solid var(--line);
+  }
+  .career li {
+    position: relative;
+    padding: 0 0 1.1rem 1.25rem;
+  }
+  .career li::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0.55em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--muted);
+  }
+  .career li:last-child::before {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .certs li {
+    font-size: 0.8rem;
+  }
+  .note {
+    margin-top: 1.5rem;
   }
 </style>

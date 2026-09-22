@@ -11,106 +11,58 @@ const lang = Astro.params.lang as Lang;
 const copy = {
   en: {
     title: 'Carlos Rendón — AI proposes, the human decides',
-    description:
-      'AI engineer for regulated enterprise platforms. Twenty years building software in health and government, now building AI where the human stays in charge. Also a writer and music producer.',
+    description: 'AI engineer for regulated platforms. Salesforce for the health and public sectors, and AI tools where a person makes the final call. Also a writer and music producer.',
     eyebrow: 'Brisbane · remote · English & Spanish',
     machine: 'AI proposes,',
     human: 'the human decides.',
-    lede: 'I’m Carlos Rendón, an AI engineer for regulated enterprise platforms. Twenty years building software, most recently Salesforce systems in health and government, and now AI agents and tools where the human stays in charge.',
+    lede: 'I build Salesforce systems for the health and public sectors, and AI tools where a person makes the final call.',
     available: 'Available for contracts now',
     ctaPrimary: 'Get in touch',
-    ctaSecondary: 'View CV',
     photoAlt: 'Carlos Rendón smiling in his home studio, wearing headphones and playing a guitar.',
     routesTitle: 'What brings you here?',
     routes: [
-      {
-        title: 'Hire me for a role',
-        body: 'Contract or permanent: Salesforce and OmniStudio engineering, integration, and applied AI on top of it.',
-        cta: 'See my experience',
-        href: path('en', 'work'),
-      },
-      {
-        title: 'Bring AI into your team',
-        body: 'MCP servers, retrieval over your knowledge, and agents with human approval built in. Start with a free 30-minute call.',
-        cta: 'See how I consult',
-        href: path('en', 'consulting'),
-      },
-      {
-        title: 'Collaborate on art',
-        body: 'Transmedia fiction, interactive stories and AI-assisted music. Writers, musicians, studios and festivals welcome.',
-        cta: 'See the work',
-        href: path('en', 'art'),
-      },
+      { title: 'Hire me', body: 'Salesforce, OmniStudio and applied AI. Contract or permanent.', cta: 'See my work', href: path('en', 'work') },
+      { title: 'Bring AI into your team', body: 'MCP, retrieval and agents with human approval. Free 30-minute call.', cta: 'See consulting', href: path('en', 'consulting') },
+      { title: 'Collaborate on art', body: 'Transmedia fiction, interactive stories and music.', cta: 'See the art', href: path('en', 'art') },
     ],
     facts: [
-      ['20+ years', 'building software, from payroll systems in Medellín to national platforms in Australia'],
-      ['8', 'Salesforce certifications, including OmniStudio Developer and Consultant'],
-      ['Health & government', 'national counselling, police online reporting, disability insurance'],
-      ['Built and used daily', 'my own MCP server, retrieval pipeline and multi-model writing editor'],
+      ['Health & public sector', 'Salesforce platforms where errors reach real people'],
+      ['8 certifications', 'Salesforce, including OmniStudio Developer and Consultant'],
+      ['AI tools in daily use', 'my own MCP server, retrieval pipeline and writing editor'],
     ],
     thesisTitle: 'One idea, three places',
     thesis: [
-      ['In enterprise systems', 'Platforms where an error reaches a counsellor mid-call or a citizen filing a report. I build them to fail safely and to be handed over cleanly.'],
-      ['In AI tools', 'Agents declare what they want to do and a person approves what matters. Models suggest; nothing lands without a human decision.'],
-      ['In fiction and music', 'Stories where an AI is a character and the interface is the narrator, and songs where generated material is only a starting point for my own production.'],
-    ],
-    selectedTitle: 'Selected work',
-    selected: [
-      { label: 'Enterprise', title: 'A national counselling platform', body: 'Salesforce, Genesys and Omni-Channel for Australia’s a national counselling line service.', href: path('en', 'work') + '#national-counselling' },
-      { label: 'Applied AI', title: 'WorkBrain', body: 'An MCP server that gives AI coding assistants project memory, isolated per client.', href: path('en', 'lab') + '#workbrain' },
-      { label: 'Art', title: 'Toma 1024', body: 'A box of loose pieces, a web app inside the fiction, and a music layer. In development.', href: path('en', 'art') + '#toma-1024' },
+      ['Enterprise', 'Systems that fail safely and hand over cleanly.'],
+      ['AI tools', 'Agents propose; a person approves what matters.'],
+      ['Fiction and music', 'AI as a character, and as raw material I shape by hand.'],
     ],
   },
   es: {
     title: 'Carlos Rendón — La IA propone, el humano decide',
-    description:
-      'Ingeniero de IA para plataformas empresariales reguladas. Veinte años construyendo software en salud y gobierno, y ahora IA donde el humano sigue al mando. También escritor y productor musical.',
+    description: 'Ingeniero de IA para plataformas reguladas. Salesforce para los sectores salud y público, y herramientas de IA donde una persona tiene la última palabra. También escritor y productor musical.',
     eyebrow: 'Brisbane · remoto · español e inglés',
     machine: 'La IA propone,',
     human: 'el humano decide.',
-    lede: 'Soy Carlos Rendón, ingeniero de IA para plataformas empresariales reguladas. Veinte años construyendo software, los últimos en sistemas Salesforce de salud y gobierno, y ahora agentes y herramientas de IA donde el humano sigue al mando.',
+    lede: 'Construyo sistemas Salesforce para los sectores salud y público, y herramientas de IA donde una persona tiene la última palabra.',
     available: 'Disponible para contratos desde ya',
     ctaPrimary: 'Hablemos',
-    ctaSecondary: 'Ver CV',
     photoAlt: 'Carlos Rendón sonriendo en su estudio casero, con audífonos y tocando una guitarra.',
     routesTitle: '¿Qué te trae por aquí?',
     routes: [
-      {
-        title: 'Contratarme para un rol',
-        body: 'Contrato o planta: ingeniería Salesforce y OmniStudio, integración e IA aplicada sobre esa base.',
-        cta: 'Ver mi experiencia',
-        href: path('es', 'work'),
-      },
-      {
-        title: 'Llevar IA a tu equipo',
-        body: 'Servidores MCP, recuperación sobre el conocimiento de tu empresa y agentes con aprobación humana. Empieza con una llamada gratuita de 30 minutos.',
-        cta: 'Ver cómo asesoro',
-        href: path('es', 'consulting'),
-      },
-      {
-        title: 'Colaborar en arte',
-        body: 'Ficción transmedia, historias interactivas y música con IA. Bienvenidos escritores, músicos, estudios y festivales.',
-        cta: 'Ver la obra',
-        href: path('es', 'art'),
-      },
+      { title: 'Contratarme', body: 'Salesforce, OmniStudio e IA aplicada. Contrato o planta.', cta: 'Ver mi trabajo', href: path('es', 'work') },
+      { title: 'Llevar IA a tu equipo', body: 'MCP, recuperación y agentes con aprobación humana. Llamada gratis de 30 minutos.', cta: 'Ver consultoría', href: path('es', 'consulting') },
+      { title: 'Colaborar en arte', body: 'Ficción transmedia, historias interactivas y música.', cta: 'Ver el arte', href: path('es', 'art') },
     ],
     facts: [
-      ['20+ años', 'construyendo software, desde sistemas de nómina en Medellín hasta plataformas nacionales en Australia'],
-      ['8', 'certificaciones de Salesforce, entre ellas OmniStudio Developer y Consultant'],
-      ['Salud y gobierno', 'consejería nacional, reportes en línea de la policía, seguro de discapacidad'],
-      ['Construido y en uso diario', 'mi propio servidor MCP, pipeline de recuperación y editor de escritura multi-modelo'],
+      ['Salud y sector público', 'plataformas Salesforce donde los errores le llegan a personas reales'],
+      ['8 certificaciones', 'de Salesforce, entre ellas OmniStudio Developer y Consultant'],
+      ['Herramientas de IA en uso diario', 'mi propio servidor MCP, pipeline de recuperación y editor'],
     ],
     thesisTitle: 'Una idea, tres lugares',
     thesis: [
-      ['En sistemas empresariales', 'Plataformas donde un error le llega a un consejero en plena llamada o a un ciudadano que hace un reporte. Las construyo para que fallen de forma segura y se puedan entregar limpias.'],
-      ['En herramientas de IA', 'Los agentes declaran lo que quieren hacer y una persona aprueba lo que importa. Los modelos sugieren; nada se aplica sin una decisión humana.'],
-      ['En ficción y música', 'Historias donde una IA es personaje y la interfaz es la narradora, y canciones donde lo generado es solo el punto de partida de mi propia producción.'],
-    ],
-    selectedTitle: 'Trabajo seleccionado',
-    selected: [
-      { label: 'Empresa', title: 'Una plataforma nacional de consejería', body: 'Salesforce, Genesys y Omni-Channel para el servicio a national counselling line en Australia.', href: path('es', 'work') + '#national-counselling' },
-      { label: 'IA aplicada', title: 'WorkBrain', body: 'Un servidor MCP que da memoria de proyecto a los asistentes de código, aislada por cliente.', href: path('es', 'lab') + '#workbrain' },
-      { label: 'Arte', title: 'Toma 1024', body: 'Una caja de piezas sueltas, una app web dentro de la ficción y una capa musical. En desarrollo.', href: path('es', 'art') + '#toma-1024' },
+      ['Empresa', 'Sistemas que fallan de forma segura y se entregan limpios.'],
+      ['Herramientas de IA', 'Los agentes proponen; una persona aprueba lo que importa.'],
+      ['Ficción y música', 'La IA como personaje, y como materia prima que trabajo a mano.'],
     ],
   },
 }[lang];
@@ -129,7 +81,7 @@ const copy = {
         <p class="availability"><span aria-hidden="true"></span>{copy.available}</p>
         <div class="btn-row">
           <a class="btn btn-primary" href={path(lang, 'contact')}>{copy.ctaPrimary}</a>
-          <a class="btn btn-ghost" href={path(lang, 'cv')}>{copy.ctaSecondary}</a>
+          <a class="btn btn-ghost" href={SITE.linkedin}>LinkedIn</a>
         </div>
       </div>
       <picture class="hero-photo">
@@ -145,13 +97,11 @@ const copy = {
       <div class="grid">
         {
           copy.routes.map((r) => (
-            <article class="card">
+            <a class="card route" href={r.href}>
               <h3>{r.title}</h3>
               <p>{r.body}</p>
-              <div class="card-foot">
-                <a class="card-link" href={r.href}>{r.cta}</a>
-              </div>
-            </article>
+              <span class="card-link">{r.cta}</span>
+            </a>
           ))
         }
       </div>
@@ -171,26 +121,6 @@ const copy = {
               <h3>{h}</h3>
               <p class="muted">{p}</p>
             </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="selected-title">
-    <div class="wrap">
-      <h2 id="selected-title">{copy.selectedTitle}</h2>
-      <div class="grid">
-        {
-          copy.selected.map((s) => (
-            <article class="card">
-              <span class="status">{s.label}</span>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-              <div class="card-foot">
-                <a class="card-link" href={s.href}>{lang === 'en' ? 'Read more' : 'Leer más'}<span class="visually-hidden">: {s.title}</span></a>
-              </div>
-            </article>
           ))
         }
       </div>
@@ -219,7 +149,7 @@ const copy = {
       grid-template-columns: 1fr;
     }
     .hero-photo {
-      max-width: 22rem;
+      max-width: 20rem;
     }
   }
   .thesis {
@@ -246,9 +176,7 @@ const copy = {
     animation: arrive 0.9s ease-out 0.5s both;
   }
   @keyframes blink {
-    50% {
-      opacity: 0;
-    }
+    50%,
     100% {
       opacity: 0;
     }
@@ -285,8 +213,18 @@ const copy = {
     background: #2e9d5a;
     box-shadow: 0 0 0 3px color-mix(in srgb, #2e9d5a 25%, transparent);
   }
+  .route {
+    text-decoration: none;
+    transition: border-color 0.15s ease;
+  }
+  .route:hover {
+    border-color: var(--accent);
+  }
+  .route .card-link {
+    margin-top: auto;
+  }
   .three {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
     gap: 2rem;
   }
   .muted {

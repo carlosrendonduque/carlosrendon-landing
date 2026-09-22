@@ -9,89 +9,41 @@ const lang = Astro.params.lang as Lang;
 const copy = {
   en: {
     title: 'Consulting',
-    description: 'Applied AI for teams that cannot afford to get it wrong: MCP servers, retrieval over your knowledge, human-in-the-loop agents and Salesforce integration.',
+    description: 'Applied AI for teams that can’t afford mistakes: MCP servers, retrieval, agents with human approval, and Salesforce.',
     eyebrow: 'Bring AI into your team',
-    h1: 'Applied AI for teams that can’t afford to get it wrong',
-    lede: 'I help teams put AI to work on real systems: connecting assistants to your knowledge, building agents that ask before they act, and joining it all to Salesforce. I’ve built these systems for myself first, and I run them every day.',
+    h1: 'Applied AI for teams that can’t afford mistakes',
+    lede: 'I connect AI to your knowledge and your systems, with a person approving what matters. I use these tools every day.',
     offers: [
-      {
-        name: 'Unoffice hours',
-        price: 'Free · 30 minutes · online',
-        body: 'Bring a question about AI agents, MCP, retrieval or Salesforce and AI. No pitch: we talk, and you leave with a clearer next step.',
-        cta: 'Book a call',
-        subject: 'Unoffice hours: 30-minute call',
-        primary: true,
-      },
-      {
-        name: 'AI & Salesforce readiness review',
-        price: 'AUD 2,500 fixed · 2 weeks',
-        body: 'I review your plan, your data and your platform, then hand you a written report of risks and opportunities, a prioritised roadmap with effort estimates, and a one-hour walkthrough. You own the result whether or not we keep working together.',
-        cta: 'Ask about a review',
-        subject: 'Readiness review enquiry',
-        primary: false,
-      },
-      {
-        name: 'Build & integrate',
-        price: 'Scoped after the review',
-        body: 'MCP servers over your knowledge, retrieval pipelines, human-in-the-loop agent workflows, and Salesforce and OmniStudio integration, built to be handed over to your team.',
-        cta: 'Start a conversation',
-        subject: 'Build and integrate enquiry',
-        primary: false,
-      },
+      { name: 'Unoffice hours', price: 'Free · 30 min', body: 'Bring one question about AI agents, MCP or Salesforce. Leave with a next step.', cta: 'Book a call', subject: 'Unoffice hours', primary: true },
+      { name: 'Readiness review', price: 'AUD 2,500 · 2 weeks', body: 'A written review of risks and opportunities, and a prioritised roadmap. Yours to keep.', cta: 'Ask about it', subject: 'Readiness review', primary: false },
+      { name: 'Build & integrate', price: 'Scoped after the review', body: 'MCP servers, retrieval, agent workflows and Salesforce integration, handed over to your team.', cta: 'Start a conversation', subject: 'Build and integrate', primary: false },
     ],
     principlesTitle: 'How I work',
     principles: [
-      ['The human decides', 'Models propose. Anything that touches money, customers, compliance or personal data goes to a named person first.'],
-      ['Fail closed', 'When a credential, a permission or a check is missing, the system stops instead of guessing.'],
-      ['Your data stays yours', 'Isolated per client, routed through your own model accounts when you need it, and deleted at the end of the engagement.'],
-      ['Evidence over demos', 'Every recommendation comes with a test, a measurement or a working piece you can run.'],
+      ['The human decides', 'Anything touching money, customers or personal data goes to a person first.'],
+      ['Fail closed', 'If a check is missing, the system stops instead of guessing.'],
+      ['Your data stays yours', 'Isolated per client and deleted at the end.'],
     ],
-    proofTitle: 'Things I’ve built',
-    proof: 'An MCP server with hybrid retrieval in daily use, a human-in-the-loop control layer for agents, a multi-model editor and an open-source data checker.',
-    proofCta: 'See the lab',
+    proofCta: 'See what I’ve built',
   },
   es: {
     title: 'Consultoría',
-    description: 'IA aplicada para equipos que no pueden darse el lujo de equivocarse: servidores MCP, recuperación sobre tu conocimiento, agentes con humano en el circuito e integración con Salesforce.',
+    description: 'IA aplicada para equipos que no pueden equivocarse: servidores MCP, recuperación, agentes con aprobación humana y Salesforce.',
     eyebrow: 'Llevar IA a tu equipo',
-    h1: 'IA aplicada para equipos que no pueden darse el lujo de equivocarse',
-    lede: 'Ayudo a equipos a poner la IA a trabajar sobre sistemas reales: conectar asistentes al conocimiento de la empresa, construir agentes que preguntan antes de actuar y unir todo eso con Salesforce. Construí estos sistemas primero para mí, y los uso todos los días.',
+    h1: 'IA aplicada para equipos que no pueden equivocarse',
+    lede: 'Conecto la IA con tu conocimiento y tus sistemas, con una persona aprobando lo que importa. Uso estas herramientas todos los días.',
     offers: [
-      {
-        name: 'Unoffice hours',
-        price: 'Gratis · 30 minutos · en línea',
-        body: 'Trae una pregunta sobre agentes de IA, MCP, recuperación o Salesforce con IA. Sin discurso de venta: conversamos y sales con un siguiente paso más claro.',
-        cta: 'Agendar una llamada',
-        subject: 'Unoffice hours: llamada de 30 minutos',
-        primary: true,
-      },
-      {
-        name: 'Diagnóstico de IA y Salesforce',
-        price: 'AUD 2.500 precio fijo · 2 semanas',
-        body: 'Reviso tu plan, tus datos y tu plataforma, y te entrego un informe escrito con riesgos y oportunidades, una hoja de ruta priorizada con estimaciones de esfuerzo y una sesión de una hora para recorrerlo. El resultado es tuyo, sigamos trabajando juntos o no.',
-        cta: 'Preguntar por el diagnóstico',
-        subject: 'Consulta: diagnóstico de IA y Salesforce',
-        primary: false,
-      },
-      {
-        name: 'Construcción e integración',
-        price: 'Con alcance definido tras el diagnóstico',
-        body: 'Servidores MCP sobre tu conocimiento, pipelines de recuperación, flujos de agentes con humano en el circuito e integración con Salesforce y OmniStudio, hechos para entregarse a tu equipo.',
-        cta: 'Empezar la conversación',
-        subject: 'Consulta: construcción e integración',
-        primary: false,
-      },
+      { name: 'Unoffice hours', price: 'Gratis · 30 min', body: 'Trae una pregunta sobre agentes de IA, MCP o Salesforce. Sal con un siguiente paso.', cta: 'Agendar llamada', subject: 'Unoffice hours', primary: true },
+      { name: 'Diagnóstico', price: 'AUD 2.500 · 2 semanas', body: 'Una revisión escrita de riesgos y oportunidades, y una hoja de ruta priorizada. Es tuya.', cta: 'Preguntar', subject: 'Diagnóstico', primary: false },
+      { name: 'Construcción e integración', price: 'Alcance tras el diagnóstico', body: 'Servidores MCP, recuperación, flujos de agentes e integración con Salesforce, entregados a tu equipo.', cta: 'Empezar la conversación', subject: 'Construcción e integración', primary: false },
     ],
     principlesTitle: 'Cómo trabajo',
     principles: [
-      ['El humano decide', 'Los modelos proponen. Todo lo que toca dinero, clientes, cumplimiento o datos personales pasa primero por una persona con nombre.'],
-      ['Fallar cerrado', 'Cuando falta una credencial, un permiso o una verificación, el sistema se detiene en lugar de adivinar.'],
-      ['Tus datos siguen siendo tuyos', 'Aislados por cliente, enrutados por tus propias cuentas de modelos cuando lo necesitas, y borrados al terminar el proyecto.'],
-      ['Evidencia antes que demos', 'Cada recomendación viene con una prueba, una medición o una pieza funcionando que puedes ejecutar.'],
+      ['El humano decide', 'Todo lo que toca dinero, clientes o datos personales pasa primero por una persona.'],
+      ['Fallar cerrado', 'Si falta una verificación, el sistema se detiene en vez de adivinar.'],
+      ['Tus datos son tuyos', 'Aislados por cliente y borrados al terminar.'],
     ],
-    proofTitle: 'Lo que he construido',
-    proof: 'Un servidor MCP con recuperación híbrida en uso diario, una capa de control humano para agentes, un editor multi-modelo y un verificador de datos de código abierto.',
-    proofCta: 'Ver el laboratorio',
+    proofCta: 'Ver lo que he construido',
   },
 }[lang];
 
@@ -104,25 +56,22 @@ const bookHref = (subject: string, primary: boolean) => (primary && SITE.calUrl 
       <span class="eyebrow">{copy.eyebrow}</span>
       <h1 class="measure">{copy.h1}</h1>
       <p class="lede">{copy.lede}</p>
-    </div>
-  </section>
-
-  <section aria-label={lang === 'en' ? 'Offers' : 'Ofertas'}>
-    <div class="wrap grid">
-      {
-        copy.offers.map((o) => (
-          <article class:list={['card', { featured: o.primary }]}>
-            <span class="status">{o.price}</span>
-            <h2 class="offer-name">{o.name}</h2>
-            <p>{o.body}</p>
-            <div class="card-foot">
-              <a class:list={['btn', o.primary ? 'btn-primary' : 'btn-ghost']} href={bookHref(o.subject, o.primary)}>
-                {o.cta}
-              </a>
-            </div>
-          </article>
-        ))
-      }
+      <div class="grid offers">
+        {
+          copy.offers.map((o) => (
+            <article class:list={['card', { featured: o.primary }]}>
+              <span class="status">{o.price}</span>
+              <h2 class="offer-name">{o.name}</h2>
+              <p>{o.body}</p>
+              <div class="card-foot">
+                <a class:list={['btn', o.primary ? 'btn-primary' : 'btn-ghost']} href={bookHref(o.subject, o.primary)}>
+                  {o.cta}
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
     </div>
   </section>
 
@@ -139,20 +88,15 @@ const bookHref = (subject: string, primary: boolean) => (primary && SITE.calUrl 
           ))
         }
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap"><div class="callout measure">
-      <h2>{copy.proofTitle}</h2>
-      <p>{copy.proof}</p>
-      <a class="card-link" href={path(lang, 'lab')}>{copy.proofCta}</a>
-    </div>
+      <p class="more"><a class="card-link" href={path(lang, 'lab')}>{copy.proofCta}</a></p>
     </div>
   </section>
 </Base>
 
 <style>
+  .offers {
+    margin-top: 2.5rem;
+  }
   .offer-name {
     font-size: 1.5rem;
     margin: 0;
@@ -163,5 +107,8 @@ const bookHref = (subject: string, primary: boolean) => (primary && SITE.calUrl 
   }
   .muted {
     color: var(--muted);
+  }
+  .more {
+    margin-top: 2rem;
   }
 </style>
