@@ -16,8 +16,6 @@ const copy = {
     lede: 'Health, public sector and insurance platforms: from unclear requirements to production, and what comes after release.',
     looking: 'Open to Salesforce, OmniStudio and applied-AI roles. Contract or permanent, remote or Brisbane.',
     ctaPrimary: 'Talk about a role',
-    ctaCv: 'Ask for my CV',
-    cvSubject: 'CV request',
     casesTitle: 'Selected work',
     pathTitle: 'The path so far',
     certTitle: 'Salesforce certifications',
@@ -31,8 +29,6 @@ const copy = {
     lede: 'Plataformas de salud, sector público y seguros: desde requerimientos poco claros hasta producción, y lo que viene después del release.',
     looking: 'Abierto a roles de Salesforce, OmniStudio e IA aplicada. Contrato o planta, remoto o en Brisbane.',
     ctaPrimary: 'Hablemos de un rol',
-    ctaCv: 'Pedir mi CV',
-    cvSubject: 'Solicitud de CV',
     casesTitle: 'Trabajo seleccionado',
     pathTitle: 'El recorrido',
     certTitle: 'Certificaciones Salesforce',
@@ -50,7 +46,6 @@ const copy = {
       <p class="machine">{copy.looking}</p>
       <div class="btn-row">
         <a class="btn btn-primary" href={path(lang, 'contact') + '#role'}>{copy.ctaPrimary}</a>
-        <a class="btn btn-ghost" href={`mailto:${SITE.email}?subject=${encodeURIComponent(copy.cvSubject)}`}>{copy.ctaCv}</a>
         <a class="btn btn-ghost" href={SITE.linkedin}>LinkedIn</a>
       </div>
     </div>

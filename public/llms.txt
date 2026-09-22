@@ -4,7 +4,7 @@
 
 Contact: carlos.rendon.duque@gmail.com · https://www.linkedin.com/in/carlosrendonduque/ · https://github.com/carlosrendonduque
 
-- [Work](https://carlosrendon.co/en/work/): Salesforce and OmniStudio for health, public sector and insurance; 8 Salesforce certifications. CV on request.
+- [Work](https://carlosrendon.co/en/work/): Salesforce and OmniStudio for health, public sector and insurance; 8 Salesforce certifications.
 - [Consulting](https://carlosrendon.co/en/consulting/): free 30-minute unoffice hours; readiness review (AUD 2,500, two weeks); build and integrate.
 - [Lab](https://carlosrendon.co/en/lab/): WorkBrain (MCP memory server), Bayzara (agents that ask before they act), Conato (editor where the model only proposes), dataset-preflight, calamus, tonotopia.
 - [Art](https://carlosrendon.co/en/art/): Toma 1024 (Master's thesis, in development), Nullheim, Fragmentado, Parallax Story, and music (Koombia Mate).
