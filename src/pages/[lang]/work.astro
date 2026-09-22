@@ -1,0 +1,143 @@
+---
+import Base from '../../layouts/Base.astro';
+import { cases, experience, certifications } from '../../data/content';
+import { path, staticLangPaths, type Lang } from '../../i18n/ui';
+
+export const getStaticPaths = staticLangPaths;
+const lang = Astro.params.lang as Lang;
+
+const copy = {
+  en: {
+    title: 'Work',
+    description: 'Salesforce and OmniStudio engineering for health, government and insurance platforms: case studies, experience and certifications.',
+    eyebrow: 'Hire me for a role',
+    h1: 'Enterprise platforms where mistakes reach real people',
+    lede: 'I’ve spent twenty years building software, the last six on Salesforce and OmniStudio for health, government and insurance. I take a feature from ambiguous requirements to production, and I care about what happens after release: incidents, refreshes, handovers.',
+    ctaPrimary: 'Talk about a role',
+    ctaCv: 'View CV',
+    looking: 'Looking for: Salesforce, OmniStudio and applied-AI roles. Contract or permanent, remote or Brisbane.',
+    casesTitle: 'Case studies',
+    labels: { client: 'Client', role: 'Role', when: 'When', stack: 'Stack' },
+    expTitle: 'Experience',
+    certTitle: 'Certifications',
+    alsoTitle: 'Also',
+    also: [
+      'Australian and Colombian citizen, security cleared.',
+      'Bachelor of Systems Engineering (Universidad de Antioquia) and Psychology with a focus on human-computer interaction.',
+      'English (full professional) and Spanish (native).',
+    ],
+  },
+  es: {
+    title: 'Trabajo',
+    description: 'Ingeniería Salesforce y OmniStudio para plataformas de salud, gobierno y seguros: casos, experiencia y certificaciones.',
+    eyebrow: 'Contratarme para un rol',
+    h1: 'Plataformas empresariales donde los errores le llegan a personas reales',
+    lede: 'Llevo veinte años construyendo software, los últimos seis en Salesforce y OmniStudio para salud, gobierno y seguros. Llevo una funcionalidad desde requerimientos ambiguos hasta producción, y me importa lo que pasa después del release: incidentes, refresh de ambientes, traspasos.',
+    ctaPrimary: 'Hablemos de un rol',
+    ctaCv: 'Ver CV',
+    looking: 'Busco: roles de Salesforce, OmniStudio e IA aplicada. Contrato o planta, remoto o en Brisbane.',
+    casesTitle: 'Casos',
+    labels: { client: 'Cliente', role: 'Rol', when: 'Cuándo', stack: 'Stack' },
+    expTitle: 'Experiencia',
+    certTitle: 'Certificaciones',
+    alsoTitle: 'Además',
+    also: [
+      'Ciudadano australiano y colombiano, con habilitación de seguridad.',
+      'Ingeniero de Sistemas (Universidad de Antioquia) y psicólogo con énfasis en interacción humano-computador.',
+      'Inglés (profesional completo) y español (nativo).',
+    ],
+  },
+}[lang];
+---
+
+<Base lang={lang} page="work" title={copy.title} description={copy.description}>
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">{copy.eyebrow}</span>
+      <h1 class="measure">{copy.h1}</h1>
+      <p class="lede">{copy.lede}</p>
+      <p class="machine">{copy.looking}</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href={path(lang, 'contact') + '#role'}>{copy.ctaPrimary}</a>
+        <a class="btn btn-ghost" href={path(lang, 'cv')}>{copy.ctaCv}</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cases-title">
+    <div class="wrap">
+      <h2 id="cases-title">{copy.casesTitle}</h2>
+      {
+        cases.map((c) => (
+          <article class="case" id={c.id}>
+            <h3>{c.title[lang]}</h3>
+            <dl class="tldr">
+              <dt>{copy.labels.client}</dt>
+              <dd>{c.client[lang]}</dd>
+              <dt>{copy.labels.role}</dt>
+              <dd>{c.role[lang]}</dd>
+              <dt>{copy.labels.when}</dt>
+              <dd>{c.period}</dd>
+              <dt>{copy.labels.stack}</dt>
+              <dd>
+                <ul class="tags">
+                  {c.stack.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+              </dd>
+            </dl>
+            <div class="prose">
+              <p>{c.summary[lang]}</p>
+              <ul>
+                {c.points[lang].map((p) => (
+                  <li>{p}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section aria-labelledby="exp-title">
+    <div class="wrap">
+      <h2 id="exp-title">{copy.expTitle}</h2>
+      <ol class="timeline">
+        {
+          experience.map((e) => (
+            <li>
+              <span class="when">{e.when}</span>
+              <span class="what">
+                <strong>{e.role[lang]}</strong>
+                <span>{e.where}</span>
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="cert-title">
+    <div class="wrap two-col">
+      <div>
+        <h2 id="cert-title">{copy.certTitle}</h2>
+        <ul class="prose">{certifications.map((c) => <li>{c}</li>)}</ul>
+      </div>
+      <div>
+        <h2>{copy.alsoTitle}</h2>
+        <ul class="prose">{copy.also.map((c) => <li>{c}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .two-col {
+    display: grid;
+    gap: 2rem 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  }
+</style>

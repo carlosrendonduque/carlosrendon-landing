@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../site';
+import { path, formatDate, staticLangPaths, type Lang } from '../../i18n/ui';
+
+export const getStaticPaths = staticLangPaths;
+const lang = Astro.params.lang as Lang;
+
+const copy = {
+  en: {
+    title: 'Now',
+    description: 'What Carlos Rendón is working on right now, and his availability.',
+    h1: 'Now',
+    updated: 'Last updated',
+    items: [
+      ['Available', 'For Salesforce, OmniStudio and applied-AI contracts, starting now. Remote, or hybrid in Brisbane.'],
+      ['Building', 'WorkBrain, my MCP memory server, and Bayzara, a control layer where AI agents ask before they act.'],
+      ['Writing', 'Toma 1024, my Master’s thesis: a box of loose pieces, a web app inside the fiction and a music layer.'],
+      ['Studying', 'For Anthropic’s Claude Certified Architect exam and Salesforce Data 360.'],
+      ['Listening and producing', 'Songs for the characters of Toma 1024, and new tracks for Koombia Mate.'],
+    ],
+    note: 'This is a now page, inspired by Derek Sivers’ nownownow.com.',
+    cta: 'Get in touch',
+  },
+  es: {
+    title: 'Ahora',
+    description: 'En qué está trabajando Carlos Rendón ahora mismo, y su disponibilidad.',
+    h1: 'Ahora',
+    updated: 'Última actualización',
+    items: [
+      ['Disponible', 'Para contratos de Salesforce, OmniStudio e IA aplicada, desde ya. Remoto o híbrido en Brisbane.'],
+      ['Construyendo', 'WorkBrain, mi servidor de memoria MCP, y Bayzara, una capa de control donde los agentes de IA preguntan antes de actuar.'],
+      ['Escribiendo', 'Toma 1024, mi trabajo de grado: una caja de piezas sueltas, una app web dentro de la ficción y una capa musical.'],
+      ['Estudiando', 'Para el examen Claude Certified Architect de Anthropic y para Salesforce Data 360.'],
+      ['Escuchando y produciendo', 'Canciones para los personajes de Toma 1024 y temas nuevos para Koombia Mate.'],
+    ],
+    note: 'Esta es una página "now", inspirada en nownownow.com de Derek Sivers.',
+    cta: 'Hablemos',
+  },
+}[lang];
+---
+
+<Base lang={lang} page="now" title={copy.title} description={copy.description}>
+  <section>
+    <div class="wrap"><div class="prose">
+      <h1>{copy.h1}</h1>
+      <p class="machine">{copy.updated}: <time datetime={SITE.updated}>{formatDate(SITE.updated, lang)}</time> · Brisbane</p>
+      <dl class="now-list">
+        {
+          copy.items.map(([k, v]) => (
+            <>
+              <dt>{k}</dt>
+              <dd>{v}</dd>
+            </>
+          ))
+        }
+      </dl>
+      <div class="btn-row"><a class="btn btn-primary" href={path(lang, 'contact')}>{copy.cta}</a></div>
+      <p class="hint">{copy.note}</p>
+    </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .now-list dt {
+    font-family: var(--font-human);
+    font-size: 1.35rem;
+    margin-top: 1.5rem;
+  }
+  .now-list dd {
+    margin: 0.25rem 0 0;
+    color: var(--muted);
+  }
+</style>

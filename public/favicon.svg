@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    rect { fill: #1b1a17; }
+    text { fill: #faf7f2; }
+    circle { fill: #b8291f; }
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #eeeae3; }
+      text { fill: #131211; }
+      circle { fill: #ff7564; }
+    }
+  </style>
+  <rect width="64" height="64" rx="14" />
+  <text x="11" y="45" font-family="Georgia, serif" font-size="36" font-weight="600">C</text>
+  <circle cx="45" cy="41" r="5" />
+</svg>

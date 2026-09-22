@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+import { artworks } from '../../data/content';
+import { mailto } from '../../site';
+import { path, ui, staticLangPaths, type Lang } from '../../i18n/ui';
+
+export const getStaticPaths = staticLangPaths;
+const lang = Astro.params.lang as Lang;
+const t = ui[lang];
+
+const copy = {
+  en: {
+    title: 'Art',
+    description: 'Transmedia fiction, interactive stories and AI-assisted music by Carlos Rendón, where an AI is often a character and the interface tells the story.',
+    eyebrow: 'Collaborate on art',
+    h1: 'Stories where the interface is the narrator',
+    lede: 'I write fiction that spreads across formats (printed objects, web apps that live inside the story, sound) and I produce music. Artificial intelligence shows up in the work twice: as a character, and as a tool I use without handing it the final word.',
+    worksTitle: 'Works',
+    open: 'Open',
+    musicTitle: 'Music',
+    music: [
+      'I produce songs in Ableton with AI in the chain: generated sketches and synthetic voices as raw material, then arrangement, editing, mixing and mastering by hand. The same studio makes the sound of my fiction.',
+      'Koombia Mate is my music project: cumbia, Latin rhythms, experimental reggaeton, electronica and punk, with AI as an instrument. Releases will be listed here soon.',
+    ],
+    statementTitle: 'On AI and authorship',
+    statement:
+      'I use AI models to draft, test voices, sketch music and build interactive characters. They propose; I choose, rewrite and sign. When a piece uses generated material I say so, and I don’t reproduce other artists’ work to train or prompt my tools.',
+    collabTitle: 'Let’s make something',
+    collab: 'I’m interested in working with illustrators and book artists, musicians and vocalists, interactive and narrative game studios, and festivals or universities working on electronic literature.',
+    collabCta: 'Propose a collaboration',
+    collabSubject: 'Art collaboration',
+    thesis: 'Toma 1024 is my thesis for the Master’s in Literary Creation and Digital Narratives at Universidad Icesi (Cali, Colombia).',
+  },
+  es: {
+    title: 'Arte',
+    description: 'Ficción transmedia, historias interactivas y música con IA de Carlos Rendón, donde a menudo una IA es personaje y la interfaz cuenta la historia.',
+    eyebrow: 'Colaborar en arte',
+    h1: 'Historias donde la interfaz es la narradora',
+    lede: 'Escribo ficción que se reparte entre formatos (objetos impresos, aplicaciones web que viven dentro de la historia, sonido) y produzco música. La inteligencia artificial aparece dos veces en la obra: como personaje, y como herramienta que uso sin darle la última palabra.',
+    worksTitle: 'Obras',
+    open: 'Abrir',
+    musicTitle: 'Música',
+    music: [
+      'Produzco canciones en Ableton con IA en la cadena: bocetos generados y voces sintéticas como materia prima, y después arreglo, edición, mezcla y máster a mano. En el mismo estudio nace el sonido de mi ficción.',
+      'Koombia Mate es mi proyecto musical: cumbia, ritmos latinos, reguetón experimental, electrónica y punk, con la IA como un instrumento más. Pronto listaré aquí los lanzamientos.',
+    ],
+    statementTitle: 'Sobre IA y autoría',
+    statement:
+      'Uso modelos de IA para hacer borradores, probar voces, bocetar música y construir personajes interactivos. Ellos proponen; yo elijo, reescribo y firmo. Cuando una pieza usa material generado lo digo, y no reproduzco obra de otros artistas para entrenar o alimentar mis herramientas.',
+    collabTitle: 'Hagamos algo',
+    collab: 'Me interesa trabajar con ilustradores y artistas del libro, músicos y vocalistas, estudios de juegos narrativos e interactivos, y festivales o universidades que trabajen literatura electrónica.',
+    collabCta: 'Proponer una colaboración',
+    collabSubject: 'Colaboración artística',
+    thesis: 'Toma 1024 es mi trabajo de grado de la Maestría en Creación Literaria y Narrativas Digitales de la Universidad Icesi (Cali, Colombia).',
+  },
+}[lang];
+---
+
+<Base lang={lang} page="art" title={copy.title} description={copy.description}>
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">{copy.eyebrow}</span>
+      <h1 class="measure">{copy.h1}</h1>
+      <p class="lede">{copy.lede}</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="works-title">
+    <div class="wrap">
+      <h2 id="works-title">{copy.worksTitle}</h2>
+      <div class="grid wide">
+        {
+          artworks.map((w) => (
+            <article class="card" id={w.id}>
+              <span class="status">
+                {w.kind[lang]} · {w.year}
+              </span>
+              <h3>{w.name}</h3>
+              <p>{w.body[lang]}</p>
+              {w.id === 'toma-1024' && <p class="machine">{copy.thesis}</p>}
+              <div class="card-foot">
+                {w.live ? (
+                  <a class="card-link" href={w.live}>
+                    {copy.open}
+                    <span class="visually-hidden">: {w.name}</span>
+                  </a>
+                ) : (
+                  <span class="machine">{w.status?.[lang] ?? t.inDevelopment}</span>
+                )}
+                {w.language && <span class="machine">{w.language[lang]}</span>}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="music-title" id="music">
+    <div class="wrap"><div class="prose">
+      <h2 id="music-title">{copy.musicTitle}</h2>
+      {copy.music.map((p) => <p>{p}</p>)}
+      <ul class="tags" aria-label={lang === 'en' ? 'Studio' : 'Estudio'}>
+        {['Ableton Live', 'Suno', 'Udio', 'Synthesizer V', 'Kits AI', 'ElevenLabs', 'Scaler', 'Splice', 'iZotope'].map((s) => <li>{s}</li>)}
+      </ul>
+    </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="statement-title">
+    <div class="wrap"><div class="prose">
+      <h2 id="statement-title">{copy.statementTitle}</h2>
+      <p>{copy.statement}</p>
+      <p><a href={path(lang, 'lab') + '#conato'}>Conato</a> · <a href={path(lang, 'lab') + '#calamus'}>calamus</a> · <a href={path(lang, 'lab') + '#tonotopia'}>tonotopia</a></p>
+    </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="collab-title">
+    <div class="wrap"><div class="callout measure">
+      <h2 id="collab-title">{copy.collabTitle}</h2>
+      <p>{copy.collab}</p>
+      <a class="btn btn-primary" href={mailto(copy.collabSubject)}>{copy.collabCta}</a>
+    </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .wide {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr));
+  }
+</style>

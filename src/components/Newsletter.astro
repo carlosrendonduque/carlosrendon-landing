@@ -1,0 +1,44 @@
+---
+import { SITE, mailto } from '../site';
+import { ui, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = ui[lang].newsletter;
+---
+
+<div class="newsletter measure">
+  <span class="eyebrow">Newsletter</span>
+  <h2>{t.title}</h2>
+  <p>{t.body}</p>
+  {
+    SITE.buttondown ? (
+      <form
+        class="inline-form"
+        action={`https://buttondown.com/api/emails/embed-subscribe/${SITE.buttondown}`}
+        method="post"
+        target="_blank"
+      >
+        <label class="visually-hidden" for={`nl-email-${lang}`}>
+          {t.label}
+        </label>
+        <input id={`nl-email-${lang}`} type="email" name="email" autocomplete="email" required placeholder={t.label} />
+        <input type="hidden" name="tag" value={lang} />
+        <button class="btn btn-primary" type="submit">
+          {t.cta}
+        </button>
+      </form>
+    ) : (
+      <>
+        <p class="hint">{t.fallback}</p>
+        <div class="btn-row">
+          <a class="btn btn-ghost" href={mailto(t.fallbackSubject)}>
+            {t.fallbackCta}
+          </a>
+        </div>
+      </>
+    )
+  }
+</div>
