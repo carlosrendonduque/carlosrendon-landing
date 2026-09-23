@@ -9,13 +9,19 @@ export const SITE = {
   // Buttondown username; the newsletter form posts to it when set.
   buttondown: 'carlosrendon',
   // Conserje chat backend. The widget only renders when this has a value.
-  // In dev it points at the local backend (php -S localhost:8000 -t public in
-  // ~/Documents/repos/artificial-intelligence/conserje), so the chat is there
-  // while Carlos works on the site. The published build gets '' until the
-  // backend is deployed: localhost is the visitor's own machine, and an https
-  // page cannot call http at all, so a published chat could only ever fail.
-  // Replace the whole expression with the deployed https URL to go live.
-  conserje: import.meta.env.DEV ? 'http://localhost:8000/chat' : '',
+  //
+  // In dev it points at the local server (`node --experimental-strip-types
+  // bin/serve.ts` in ~/Documents/repos/artificial-intelligence/conserje/server)
+  // so the chat is there while Carlos works on the site, and no published page
+  // ever depends on a machine only he can reach.
+  //
+  // In production it is the deployed backend, which is a separate Netlify
+  // project: this site is static and stays on GitHub Pages. carlosrendon.co is
+  // in that backend's per-site origin allowlist, so the cross-origin call is
+  // allowed from here and refused from anywhere else.
+  conserje: import.meta.env.DEV
+    ? 'http://localhost:8000/chat'
+    : 'https://api.carlosrendon.co/chat',
   // Umami website id; the analytics script only loads when this is set.
   umami: '0c89b82e-bc41-4191-aba1-ab86e7c79269',
   umamiSrc: 'https://cloud.umami.is/script.js',
