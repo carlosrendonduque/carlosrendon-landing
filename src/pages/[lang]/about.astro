@@ -11,13 +11,13 @@ const lang = Astro.params.lang as Lang;
 const copy = {
   en: {
     title: 'About',
-    description: 'Carlos Rendón: engineer, writer and music producer from Medellín, based in Brisbane.',
+    description: 'Carlos Rendón: applied-AI engineer, writer and music producer from Medellín, based in Brisbane.',
     h1: 'Between systems and people',
     photoAlt: 'Carlos Rendón in his home studio with headphones and a guitar.',
     story: [
-      'I’m from Medellín and live in Brisbane. I started on payroll systems, co-founded a software consultancy, and now build Salesforce platforms for the health and public sectors.',
-      'I also studied psychology, focused on how people use computers, and I’m doing a Master’s in Literary Creation and Digital Narratives. The same question runs through all of it: who decides, the person or the machine?',
-      'So I build AI tools, write fiction and make music, with one rule: AI proposes, the human decides.',
+      'I’m from Medellín and live in Brisbane. I build AI tools that connect models to systems people actually use, and I use them every day: my own MCP server, the memory it runs on, an editor where the model only proposes.',
+      'I got here through engineering, on enterprise platforms real people depended on every day. That is where I learned the hard part: getting new technology into what a company already runs, so that it ends up serving whoever uses it.',
+      'I also studied psychology, focused on how people use computers, and I’m doing a Master’s in Literary Creation and Digital Narratives. The same question runs through all of it: who decides, the person or the machine? So I write fiction and make music with the rule I build by — AI proposes, the human decides.',
     ],
     eduTitle: 'Study',
     edu: [
@@ -27,16 +27,17 @@ const copy = {
       'Systems Engineering, Universidad de Antioquia',
     ],
     cta: 'Get in touch',
+    ctaSubject: 'Hello',
   },
   es: {
     title: 'Sobre mí',
-    description: 'Carlos Rendón: ingeniero, escritor y productor musical de Medellín, radicado en Brisbane.',
+    description: 'Carlos Rendón: ingeniero de IA aplicada, escritor y productor musical de Medellín, radicado en Brisbane.',
     h1: 'Entre sistemas y personas',
     photoAlt: 'Carlos Rendón en su estudio casero con audífonos y una guitarra.',
     story: [
-      'Soy de Medellín y vivo en Brisbane. Empecé en sistemas de nómina, cofundé una consultora de software y hoy construyo plataformas Salesforce para los sectores salud y público.',
-      'También estudié psicología, con énfasis en cómo las personas usan los computadores, y hago una Maestría en Creación Literaria y Narrativas Digitales. La misma pregunta atraviesa todo: ¿quién decide, la persona o la máquina?',
-      'Por eso construyo herramientas de IA, escribo ficción y hago música, con una regla: la IA propone, el humano decide.',
+      'Soy de Medellín y vivo en Brisbane. Construyo herramientas de IA que conectan modelos con sistemas que la gente usa de verdad, y las uso todos los días: mi propio servidor MCP, la memoria sobre la que corre, un editor donde el modelo solo propone.',
+      'Llegué ahí desde la ingeniería, en plataformas empresariales de las que dependía gente real todos los días. Ahí aprendí la parte difícil: meter tecnología nueva en lo que una empresa ya tiene corriendo, de modo que termine sirviéndole a quien lo usa.',
+      'También estudié psicología, con énfasis en cómo las personas usan los computadores, y hago una Maestría en Creación Literaria y Narrativas Digitales. La misma pregunta atraviesa todo: ¿quién decide, la persona o la máquina? Por eso escribo ficción y hago música con la regla con la que construyo: la IA propone, el humano decide.',
     ],
     eduTitle: 'Estudios',
     edu: [
@@ -46,6 +47,7 @@ const copy = {
       'Ingeniería de Sistemas, Universidad de Antioquia',
     ],
     cta: 'Hablemos',
+    ctaSubject: 'Hola',
   },
 }[lang];
 
@@ -66,11 +68,11 @@ const jsonLd = {
         {copy.story.map((p) => <p>{p}</p>)}
         <h2 class="edu-title">{copy.eduTitle}</h2>
         <ul>{copy.edu.map((e) => <li>{e}</li>)}</ul>
-        <div class="btn-row"><ChatButton label={copy.cta} /></div>
+        <div class="btn-row"><ChatButton label={copy.cta} subject={copy.ctaSubject} /></div>
       </div>
       <picture>
         <source srcset="/images/carlos.webp" type="image/webp" />
-        <img src="/images/carlos.jpg" alt={copy.photoAlt} width="1000" height="1173" loading="lazy" class="about-photo" />
+        <img src="/images/carlos.jpg" alt={copy.photoAlt} width="1200" height="1407" loading="lazy" class="about-photo" />
       </picture>
     </div>
   </section>

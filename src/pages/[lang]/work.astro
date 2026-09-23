@@ -10,27 +10,29 @@ const lang = Astro.params.lang as Lang;
 
 const copy = {
   en: {
-    title: 'Work',
+    title: 'Salesforce & OmniStudio work',
     description: 'Salesforce and OmniStudio engineering for the health and public sectors and insurance.',
     eyebrow: 'Hire me',
     h1: 'Salesforce for services people depend on',
     lede: 'Health, public sector and insurance platforms: from unclear requirements to production, and what comes after release.',
-    looking: 'Open to Salesforce, OmniStudio and applied-AI roles. Contract or permanent, remote or Brisbane.',
+    looking: 'Open to Salesforce, OmniStudio and applied-AI contracts, remote or Brisbane.',
     ctaPrimary: 'Talk about a role',
+    ctaSubject: 'Role enquiry',
     casesTitle: 'Selected work',
     pathTitle: 'The path so far',
     certTitle: 'Salesforce certifications',
     note: 'Australian and Colombian citizen · security cleared · English and Spanish',
   },
   es: {
-    title: 'Trabajo',
-    description: 'Ingeniería Salesforce y OmniStudio para los sectores salud, público y seguros.',
+    title: 'Trabajo en Salesforce y OmniStudio',
+    description: 'Ingeniería en Salesforce y OmniStudio para los sectores salud, público y seguros.',
     eyebrow: 'Contratarme',
     h1: 'Salesforce para servicios de los que la gente depende',
     lede: 'Plataformas de salud, sector público y seguros: desde requerimientos poco claros hasta producción, y lo que viene después del release.',
-    looking: 'Abierto a roles de Salesforce, OmniStudio e IA aplicada. Contrato o planta, remoto o en Brisbane.',
+    looking: 'Abierto a contratos de Salesforce, OmniStudio e IA aplicada, remoto o en Brisbane.',
     ctaPrimary: 'Hablemos de un rol',
-    casesTitle: 'Trabajo seleccionado',
+    ctaSubject: 'Consulta sobre un rol',
+    casesTitle: 'Trabajo destacado',
     pathTitle: 'El recorrido',
     certTitle: 'Certificaciones Salesforce',
     note: 'Ciudadano australiano y colombiano · habilitación de seguridad · español e inglés',
@@ -44,9 +46,10 @@ const copy = {
       <span class="eyebrow">{copy.eyebrow}</span>
       <h1 class="measure">{copy.h1}</h1>
       <p class="lede">{copy.lede}</p>
+      <p class="eligibility">{copy.note}</p>
       <p class="machine">{copy.looking}</p>
       <div class="btn-row">
-        <ChatButton label={copy.ctaPrimary} />
+        <ChatButton label={copy.ctaPrimary} subject={copy.ctaSubject} />
         <a class="btn btn-ghost" href={SITE.linkedin}>LinkedIn</a>
       </div>
     </div>
@@ -67,8 +70,8 @@ const copy = {
                 ))}
               </ul>
               <ul class="tags card-foot">
-                {c.stack.map((s) => (
-                  <li>{s}</li>
+                {c.capabilities[lang].map((cap) => (
+                  <li>{cap}</li>
                 ))}
               </ul>
             </article>
@@ -87,7 +90,6 @@ const copy = {
       <div>
         <h2>{copy.certTitle}</h2>
         <ul class="tags certs">{certifications.map((c) => <li>{c}</li>)}</ul>
-        <p class="machine note">{copy.note}</p>
       </div>
     </div>
   </section>
@@ -135,7 +137,13 @@ const copy = {
   .certs li {
     font-size: 0.8rem;
   }
-  .note {
-    margin-top: 1.5rem;
+  .eligibility {
+    display: inline-block;
+    font-weight: 600;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.9rem;
+    margin: 0.25rem 0 1rem;
   }
 </style>

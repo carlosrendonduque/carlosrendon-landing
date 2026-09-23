@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ChatButton from '../../components/ChatButton.astro';
+import { SITE } from '../../site';
 import { path, staticLangPaths, type Lang } from '../../i18n/ui';
 
 export const getStaticPaths = staticLangPaths;
@@ -8,40 +9,74 @@ const lang = Astro.params.lang as Lang;
 
 const copy = {
   en: {
-    title: 'Consulting',
-    description: 'Applied AI with a person in charge: MCP servers, retrieval, agents with human approval, and Salesforce.',
+    title: 'Applied AI consulting',
+    description: 'Applied AI with a person in charge: MCP servers, memory and agent orchestration, connected to the systems you already run.',
     eyebrow: 'Bring AI into your team',
     h1: 'Applied AI, with a person in charge',
-    lede: 'I connect AI to your knowledge and your systems, with a person approving what matters. I use these tools every day.',
+    lede: 'I connect AI to your knowledge and your systems, for teams that can’t hand a model the final decision. I use these tools every day.',
     offers: [
-      { name: 'Free scoping chat', price: 'Free · 5 min · any time', body: 'Tell my assistant what you’re trying to build. It asks the right questions and sends me a brief. If there’s a fit, I come back to you.', cta: 'Start now', primary: true },
-      { name: 'Readiness review', price: 'AUD 2,500 · 2 weeks', body: 'A written review of risks and opportunities, and a prioritised roadmap. Yours to keep.', cta: 'Ask about it', primary: false },
-      { name: 'Build & integrate', price: 'Scoped after the review', body: 'MCP servers, retrieval, agent workflows and Salesforce integration, handed over to your team.', cta: 'Start a conversation', primary: false },
-    ],
-    principlesTitle: 'How I work',
-    principles: [
-      ['The human decides', 'Anything touching money, customers or personal data goes to a person first.'],
-      ['Fail closed', 'If a check is missing, the system stops instead of guessing.'],
-      ['Your data stays yours', 'Isolated per client and deleted at the end.'],
+      {
+        name: 'First conversation',
+        price: SITE.conserje ? 'Free · 5 min · any time' : 'Free · no obligation',
+        body: SITE.conserje
+          ? 'Tell my assistant what you’re trying to build. It asks you the right questions and sends me a brief. If we’re a fit, I come back to you.'
+          : 'Tell me what you’re trying to build and what’s in the way. If we’re a fit I’ll say what I would do first, and if we’re not I’ll say that too.',
+        cta: 'Start now',
+        subject: 'Scoping conversation',
+        primary: false,
+      },
+      {
+        name: 'Readiness review',
+        price: 'AUD 2,500 · 2 weeks',
+        body: 'A written review of risks and opportunities, a prioritised roadmap, and a session to walk your team through it. The fee comes off the build.',
+        cta: 'Ask about it',
+        subject: 'Readiness review',
+        primary: true,
+      },
+      {
+        name: 'Build & integrate',
+        price: SITE.dayRate ? `From ${SITE.dayRate}/day` : 'Scoped after the review',
+        body: 'MCP servers, memory and agent orchestration, connected to the systems you already run and handed over to your team.',
+        cta: 'Start a conversation',
+        subject: 'Build and integrate',
+        primary: false,
+      },
     ],
     proofCta: 'See what I’ve built',
   },
   es: {
-    title: 'Consultoría',
-    description: 'IA aplicada con una persona al mando: servidores MCP, recuperación, agentes con aprobación humana y Salesforce.',
+    title: 'Consultoría en IA aplicada',
+    description: 'IA aplicada con una persona al mando: servidores MCP, memoria y orquestación de agentes, conectados a los sistemas que ya tienes.',
     eyebrow: 'Llevar IA a tu equipo',
     h1: 'IA aplicada, con una persona al mando',
-    lede: 'Conecto la IA con tu conocimiento y tus sistemas, con una persona aprobando lo que importa. Uso estas herramientas todos los días.',
+    lede: 'Conecto la IA a tu conocimiento y a tus sistemas, para equipos que no pueden dejarle la decisión final a un modelo. Uso estas herramientas todos los días.',
     offers: [
-      { name: 'Chat de diagnóstico gratis', price: 'Gratis · 5 min · cuando quieras', body: 'Cuéntale a mi asistente qué quieres construir. Hace las preguntas correctas y me envía un resumen. Si hay fit, te respondo yo.', cta: 'Empezar ahora', primary: true },
-      { name: 'Diagnóstico', price: 'AUD 2.500 · 2 semanas', body: 'Una revisión escrita de riesgos y oportunidades, y una hoja de ruta priorizada. Es tuya.', cta: 'Preguntar', primary: false },
-      { name: 'Construcción e integración', price: 'Alcance tras el diagnóstico', body: 'Servidores MCP, recuperación, flujos de agentes e integración con Salesforce, entregados a tu equipo.', cta: 'Empezar la conversación', primary: false },
-    ],
-    principlesTitle: 'Cómo trabajo',
-    principles: [
-      ['El humano decide', 'Todo lo que toca dinero, clientes o datos personales pasa primero por una persona.'],
-      ['Fallar cerrado', 'Si falta una verificación, el sistema se detiene en vez de adivinar.'],
-      ['Tus datos son tuyos', 'Aislados por cliente y borrados al terminar.'],
+      {
+        name: 'Primera conversación',
+        price: SITE.conserje ? 'Gratis · 5 min · cuando quieras' : 'Gratis · sin compromiso',
+        body: SITE.conserje
+          ? 'Cuéntale a mi asistente qué quieres construir. Te hace las preguntas correctas y me manda un resumen. Si encajamos, te respondo yo.'
+          : 'Cuéntame qué quieres construir y qué te lo está impidiendo. Si encajamos te digo por dónde empezaría, y si no, también te lo digo.',
+        cta: 'Empezar ahora',
+        subject: 'Primera conversación',
+        primary: false,
+      },
+      {
+        name: 'Diagnóstico',
+        price: 'AUD 2.500 · 2 semanas',
+        body: 'Una revisión escrita de riesgos y oportunidades, una hoja de ruta priorizada y una sesión para recorrerla con tu equipo. Ese valor se abona a la construcción.',
+        cta: 'Preguntar',
+        subject: 'Diagnóstico',
+        primary: true,
+      },
+      {
+        name: 'Construcción e integración',
+        price: SITE.dayRate ? `Desde ${SITE.dayRate}/día` : 'Alcance después del diagnóstico',
+        body: 'Servidores MCP, memoria y orquestación de agentes, conectados a los sistemas que ya tienes y entregados a tu equipo.',
+        cta: 'Empezar una conversación',
+        subject: 'Construcción e integración',
+        primary: false,
+      },
     ],
     proofCta: 'Ver lo que he construido',
   },
@@ -63,25 +98,9 @@ const copy = {
               <h2 class="offer-name">{o.name}</h2>
               <p>{o.body}</p>
               <div class="card-foot">
-                <ChatButton label={o.cta} variant={o.primary ? 'primary' : 'ghost'} />
+                <ChatButton label={o.cta} subject={o.subject} variant={o.primary ? 'primary' : 'ghost'} />
               </div>
             </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="principles-title">
-    <div class="wrap">
-      <h2 id="principles-title">{copy.principlesTitle}</h2>
-      <div class="grid">
-        {
-          copy.principles.map(([h, p]) => (
-            <div>
-              <h3>{h}</h3>
-              <p class="muted">{p}</p>
-            </div>
           ))
         }
       </div>
@@ -102,10 +121,7 @@ const copy = {
     border-color: var(--accent);
     box-shadow: 0 0 0 1px var(--accent);
   }
-  .muted {
-    color: var(--muted);
-  }
   .more {
-    margin-top: 2rem;
+    margin-top: 2.25rem;
   }
 </style>

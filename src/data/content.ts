@@ -33,8 +33,8 @@ export const labProjects: Project[] = [
     name: 'WorkBrain',
     tagline: { en: 'Project memory for AI coding assistants', es: 'Memoria de proyecto para asistentes de código' },
     body: {
-      en: 'An MCP server that gives Claude Code and Cursor each client’s tickets, decisions and rules, with hybrid search and strict isolation between clients.',
-      es: 'Un servidor MCP que le da a Claude Code y Cursor los tickets, decisiones y reglas de cada cliente, con búsqueda híbrida y aislamiento estricto entre clientes.',
+      en: 'An MCP server that gives Claude Code and Cursor the context of each project: decisions, conventions and the history that never lives in the code. Hybrid search, strict isolation between projects.',
+      es: 'Un servidor MCP que le da a Claude Code y Cursor el contexto de cada proyecto: decisiones, convenciones y el historial que nunca vive en el código. Búsqueda híbrida y aislamiento estricto entre proyectos.',
     },
     stack: ['MCP', 'TypeScript', 'Postgres + pgvector', 'Claude'],
     status: { en: 'In daily use', es: 'En uso diario' },
@@ -100,11 +100,14 @@ export const labProjects: Project[] = [
   },
 ];
 
+// Public cases describe the class of problem, never the product that happened to
+// be under it. Platforms age out; the capability does not, and naming SKUs reads
+// as a tool inventory. Vendor specifics belong in the CV written for a given role.
 export interface Case {
   id: string;
   title: L;
   sector: L;
-  stack: string[];
+  capabilities: Record<Lang, string[]>;
   points: Record<Lang, string[]>;
 }
 
@@ -113,17 +116,20 @@ export const cases: Case[] = [
     id: 'health',
     title: { en: 'A national health service platform', es: 'Una plataforma nacional de salud' },
     sector: { en: 'Health sector', es: 'Sector salud' },
-    stack: ['Service Cloud', 'LWC', 'Apex', 'Omni-Channel', 'Genesys', 'Einstein Bot'],
+    capabilities: {
+      en: ['Systems integration', 'Real-time contact centre', 'Incident response', 'Handover'],
+      es: ['Integración de sistemas', 'Centro de contacto en tiempo real', 'Respuesta a incidentes', 'Traspaso'],
+    },
     points: {
       en: [
-        'Salesforce, Genesys and Omni-Channel messaging: routing, presence and session recovery.',
-        'Complex multi-tab forms that never lose unsaved work.',
-        'Escalation point for production incidents, and a full handover to the next team.',
+        'Contact centre integration in real time: routing, presence, and conversations that survive a dropped session or a handover.',
+        'Long multi-step intake journeys that never lose a person’s work.',
+        'Escalation point for production incidents on a clinically risk-rated platform, and the written handover the next team ran on.',
       ],
       es: [
-        'Salesforce, Genesys y mensajería Omni-Channel: enrutamiento, presencia y recuperación de sesiones.',
-        'Formularios complejos de varias pestañas que nunca pierden lo no guardado.',
-        'Punto de escalamiento para incidentes en producción y traspaso completo al siguiente equipo.',
+        'Integración de centro de contacto en tiempo real: enrutamiento, presencia y conversaciones que sobreviven a una sesión caída o a un traspaso.',
+        'Trayectos de captura largos, de varios pasos, que nunca pierden lo que la persona ya escribió.',
+        'Punto de escalamiento para incidentes de producción en una plataforma con riesgo clínico, y el traspaso escrito con el que siguió el equipo entrante.',
       ],
     },
   },
@@ -131,17 +137,20 @@ export const cases: Case[] = [
     id: 'public-sector',
     title: { en: 'Citizen reporting platforms', es: 'Plataformas de reporte ciudadano' },
     sector: { en: 'Public sector', es: 'Sector público' },
-    stack: ['OmniStudio', 'Apex', 'Salesforce CLI'],
+    capabilities: {
+      en: ['Low-code journeys', 'Release management', 'Multi-environment', 'Root-cause analysis'],
+      es: ['Trayectos low-code', 'Gestión de releases', 'Varios entornos', 'Análisis de causa raíz'],
+    },
     points: {
       en: [
-        'OmniStudio forms used directly by the public.',
-        'Releases and sandbox refreshes across a multi-org estate, each with a rollback plan.',
-        'Production defects traced end to end, from form to PDF to email.',
+        'Guided multi-step journeys used directly by the public, built low-code and deployed across channels and devices.',
+        'Release management across a multi-environment estate, every deployment with a rollback path.',
+        'Production defects traced end to end, from the form a citizen filled to the document and the email they received.',
       ],
       es: [
-        'Formularios OmniStudio que usa directamente la ciudadanía.',
-        'Releases y refresh de sandboxes en un conjunto de varias orgs, cada uno con plan de rollback.',
-        'Defectos de producción rastreados de punta a punta, del formulario al PDF y al correo.',
+        'Trayectos guiados de varios pasos que usa directamente la ciudadanía, construidos en low-code y desplegados en varios canales y dispositivos.',
+        'Gestión de releases en un conjunto de varios entornos, cada despliegue con su camino de reversa.',
+        'Defectos de producción rastreados de punta a punta, del formulario que llenó una persona al documento y al correo que recibió.',
       ],
     },
   },
@@ -149,17 +158,20 @@ export const cases: Case[] = [
     id: 'insurance',
     title: { en: 'Contract automation', es: 'Automatización de contratos' },
     sector: { en: 'Insurance', es: 'Seguros' },
-    stack: ['OmniStudio', 'Vlocity CLM', 'DocGen', 'REST'],
+    capabilities: {
+      en: ['Solution engineering', 'Presales', 'Contract lifecycle', 'API integration'],
+      es: ['Ingeniería de soluciones', 'Preventa', 'Ciclo de vida de contratos', 'Integración por API'],
+    },
     points: {
       en: [
-        'Discovery and proofs of concept alongside sales.',
-        'Contract lifecycle with document generation and e-signature.',
-        'Integrations between Salesforce and external systems.',
+        'Technical discovery and proofs of concept alongside sales, turning an open brief into a scope someone could sign.',
+        'Contract lifecycle end to end: generation, negotiation, document output and e-signature.',
+        'System-to-system integration across platform boundaries, including the failure cases.',
       ],
       es: [
-        'Descubrimiento y pruebas de concepto junto al equipo comercial.',
-        'Ciclo de vida de contratos con generación de documentos y firma electrónica.',
-        'Integraciones entre Salesforce y sistemas externos.',
+        'Descubrimiento técnico y pruebas de concepto junto al equipo comercial, convirtiendo un brief abierto en un alcance que alguien pudiera firmar.',
+        'Ciclo de vida del contrato de punta a punta: generación, negociación, salida documental y firma electrónica.',
+        'Integración entre sistemas de plataformas distintas, incluidos los casos de falla.',
       ],
     },
   },

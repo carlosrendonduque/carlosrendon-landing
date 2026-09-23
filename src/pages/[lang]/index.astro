@@ -5,61 +5,64 @@ import ChatButton from '../../components/ChatButton.astro';
 import { SITE } from '../../site';
 import { path, ui, staticLangPaths, type Lang } from '../../i18n/ui';
 import { personJsonLd } from '../../data/person';
+import { testimonials } from '../../data/testimonials';
 
 export const getStaticPaths = staticLangPaths;
 const lang = Astro.params.lang as Lang;
 
 const copy = {
   en: {
-    title: 'Carlos Rendón — AI proposes, the human decides',
-    description: 'AI engineer for regulated platforms. Salesforce for the health and public sectors, and AI tools where a person makes the final call. Also a writer and music producer.',
+    title: 'Carlos Rendón — Applied AI engineer: MCP, memory, agents',
+    description: 'I connect AI to the systems you already run: the repetitive work does itself and your team keeps the decisions. MCP servers, memory and agent orchestration, with human approval.',
     eyebrow: 'Brisbane · remote · English & Spanish',
-    machine: 'AI proposes,',
-    human: 'the human decides.',
-    lede: 'I build Salesforce systems for the health and public sectors, and AI tools where a person makes the final call.',
+    h1: 'Keep the decisions. Let go of the rest.',
+    lede: 'I connect AI to the systems you already run: the repetitive work does itself, and your team keeps what needs judgement.',
     available: 'Available for contracts now',
-    photoAlt: 'Carlos Rendón smiling in his home studio, wearing headphones and playing a guitar.',
+    photoAlt: 'Carlos Rendón smiling at a desk in an open-plan office, hands clasped under his chin.',
+    ctaSubject: 'Project enquiry',
     routesTitle: 'What brings you here?',
     routes: [
-      { title: 'Hire me', body: 'Salesforce, OmniStudio and applied AI. Contract or permanent.', cta: 'See my work', href: path('en', 'work') },
-      { title: 'Bring AI into your team', body: 'MCP, retrieval and agents with human approval. Start with a free scoping chat.', cta: 'See consulting', href: path('en', 'consulting') },
-      { title: 'Collaborate on art', body: 'Transmedia fiction, interactive stories and music.', cta: 'See the art', href: path('en', 'art') },
+      { title: 'Bring AI into your team', body: 'Agentic architecture on top of what you already run: MCP, memory and orchestration. The first conversation is free.', cta: 'See consulting', href: path('en', 'consulting') },
+      { title: 'Hire me', body: 'Enterprise platform engineering, Salesforce and OmniStudio. On contract.', cta: 'See my work', href: path('en', 'work') },
     ],
-    facts: [
-      ['Health & public sector', 'Salesforce platforms for services people depend on'],
-      ['8 certifications', 'Salesforce, including OmniStudio Developer and Consultant'],
-      ['AI tools in daily use', 'my own MCP server, retrieval pipeline and writing editor'],
-    ],
-    thesisTitle: 'One idea, three places',
+    labLine: 'The tools I build and use are open on GitHub.',
+    labCta: 'See the lab',
+    artLine: 'I also write transmedia fiction and produce music.',
+    artCta: 'See the art',
+    proofTitle: 'From people I’ve worked with',
+    proofSource: 'Published on LinkedIn',
+    machine: 'AI proposes,',
+    human: 'the human decides.',
     thesis: [
-      ['Enterprise', 'Systems that fail safely and hand over cleanly.'],
+      ['Enterprise', 'AI goes into systems already in production; whoever answers for them still decides.'],
       ['AI tools', 'Agents propose; a person approves what matters.'],
       ['Fiction and music', 'AI as a character, and as raw material I shape by hand.'],
     ],
   },
   es: {
-    title: 'Carlos Rendón — La IA propone, el humano decide',
-    description: 'Ingeniero de IA para plataformas reguladas. Salesforce para los sectores salud y público, y herramientas de IA donde una persona tiene la última palabra. También escritor y productor musical.',
+    title: 'Carlos Rendón — Ingeniero de IA aplicada: MCP y agentes',
+    description: 'Conecto la IA a los sistemas que ya tienes: el trabajo repetitivo se hace solo y tu equipo se queda con las decisiones. Servidores MCP, memoria y orquestación de agentes, con aprobación humana.',
     eyebrow: 'Brisbane · remoto · español e inglés',
-    machine: 'La IA propone,',
-    human: 'el humano decide.',
-    lede: 'Construyo sistemas Salesforce para los sectores salud y público, y herramientas de IA donde una persona tiene la última palabra.',
+    h1: 'Quédate con las decisiones. Suelta el resto.',
+    lede: 'Conecto la IA a los sistemas que ya tienes: el trabajo repetitivo se hace solo y tu equipo se queda con lo que exige criterio.',
     available: 'Disponible para contratos desde ya',
-    photoAlt: 'Carlos Rendón sonriendo en su estudio casero, con audífonos y tocando una guitarra.',
+    photoAlt: 'Carlos Rendón sonriendo en el escritorio de una oficina abierta, con las manos entrelazadas bajo el mentón.',
+    ctaSubject: 'Consulta de proyecto',
     routesTitle: '¿Qué te trae por aquí?',
     routes: [
-      { title: 'Contratarme', body: 'Salesforce, OmniStudio e IA aplicada. Contrato o planta.', cta: 'Ver mi trabajo', href: path('es', 'work') },
-      { title: 'Llevar IA a tu equipo', body: 'MCP, recuperación y agentes con aprobación humana. Empieza con un chat de diagnóstico gratis.', cta: 'Ver consultoría', href: path('es', 'consulting') },
-      { title: 'Colaborar en arte', body: 'Ficción transmedia, historias interactivas y música.', cta: 'Ver el arte', href: path('es', 'art') },
+      { title: 'Llevar IA a tu equipo', body: 'Arquitectura agéntica sobre lo que ya tienes corriendo: MCP, memoria y orquestación. La primera conversación es gratis.', cta: 'Ver consultoría', href: path('es', 'consulting') },
+      { title: 'Contratarme', body: 'Ingeniería de plataformas empresariales, Salesforce y OmniStudio. Por contrato.', cta: 'Ver mi trabajo', href: path('es', 'work') },
     ],
-    facts: [
-      ['Salud y sector público', 'plataformas Salesforce para servicios de los que la gente depende'],
-      ['8 certificaciones', 'de Salesforce, entre ellas OmniStudio Developer y Consultant'],
-      ['Herramientas de IA en uso diario', 'mi propio servidor MCP, pipeline de recuperación y editor'],
-    ],
-    thesisTitle: 'Una idea, tres lugares',
+    labLine: 'Las herramientas que construyo y uso están abiertas en GitHub.',
+    labCta: 'Ver el laboratorio',
+    artLine: 'También escribo ficción transmedia y produzco música.',
+    artCta: 'Ver el arte',
+    proofTitle: 'De la gente con la que he trabajado',
+    proofSource: 'Publicadas en LinkedIn',
+    machine: 'La IA propone,',
+    human: 'el humano decide.',
     thesis: [
-      ['Empresa', 'Sistemas que fallan de forma segura y se entregan limpios.'],
+      ['Empresa', 'La IA entra a sistemas que ya están en producción; quien responde por ellos sigue decidiendo.'],
       ['Herramientas de IA', 'Los agentes proponen; una persona aprueba lo que importa.'],
       ['Ficción y música', 'La IA como personaje, y como materia prima que trabajo a mano.'],
     ],
@@ -72,20 +75,17 @@ const copy = {
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow">{copy.eyebrow}</span>
-        <h1 class="thesis">
-          <span class="thesis-machine">{copy.machine}</span>
-          <span class="thesis-human">{copy.human}</span>
-        </h1>
+        <h1 class="measure">{copy.h1}</h1>
         <p class="lede">{copy.lede}</p>
         <p class="availability"><span aria-hidden="true"></span>{copy.available}</p>
         <div class="btn-row">
-          <ChatButton label={ui[lang].chat.cta} />
+          <ChatButton label={ui[lang].chat.cta} subject={copy.ctaSubject} />
           <a class="btn btn-ghost" href={SITE.linkedin}>LinkedIn</a>
         </div>
       </div>
       <picture class="hero-photo">
-        <source srcset="/images/carlos.webp" type="image/webp" />
-        <img src="/images/carlos.jpg" alt={copy.photoAlt} width="1000" height="1173" fetchpriority="high" />
+        <source srcset="/images/carlos-portrait.webp" type="image/webp" />
+        <img src="/images/carlos-portrait.jpg" alt={copy.photoAlt} width="680" height="850" fetchpriority="high" />
       </picture>
     </div>
   </section>
@@ -93,7 +93,7 @@ const copy = {
   <section aria-labelledby="routes-title">
     <div class="wrap">
       <h2 id="routes-title">{copy.routesTitle}</h2>
-      <div class="grid">
+      <div class="grid two">
         {
           copy.routes.map((r) => (
             <a class="card route" href={r.href}>
@@ -104,15 +104,43 @@ const copy = {
           ))
         }
       </div>
-      <ul class="facts">
-        {copy.facts.map(([n, d]) => <li><strong>{n}</strong><span>{d}</span></li>)}
-      </ul>
+      <div class="side-lines">
+        <p>{copy.labLine} <a class="card-link" href={path(lang, 'lab')}>{copy.labCta}</a></p>
+        <p>{copy.artLine} <a class="card-link" href={path(lang, 'art')}>{copy.artCta}</a></p>
+      </div>
     </div>
   </section>
 
+  {
+    testimonials.length > 0 && (
+      <section aria-labelledby="proof-title">
+        <div class="wrap">
+          <h2 id="proof-title">{copy.proofTitle}</h2>
+          <p class="proof-source">
+            <a href={SITE.linkedin}>{copy.proofSource}</a>
+          </p>
+          <div class="grid two">
+            {testimonials.map((t) => (
+              <figure class="card quote">
+                <blockquote>{t.quote[lang]}</blockquote>
+                <figcaption class="card-foot">
+                  <strong>{t.name}</strong>
+                  <span class="machine">{t.role[lang]}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   <section aria-labelledby="thesis-title">
     <div class="wrap">
-      <h2 id="thesis-title">{copy.thesisTitle}</h2>
+      <h2 id="thesis-title" class="thesis">
+        <span class="thesis-machine">{copy.machine}</span>
+        <span class="thesis-human">{copy.human}</span>
+      </h2>
       <div class="grid three">
         {
           copy.thesis.map(([h, p]) => (
@@ -151,15 +179,16 @@ const copy = {
       max-width: 20rem;
     }
   }
+  /* The thesis is the brand line, so it heads the section that demonstrates it
+     rather than the hero, where the offer has to come first. */
   .thesis {
     display: flex;
     flex-direction: column;
     gap: 0.15em;
-    margin-bottom: 1.5rem;
   }
   .thesis-machine {
     font-family: var(--font-machine);
-    font-size: 0.5em;
+    font-size: 0.55em;
     font-weight: 400;
     color: var(--muted);
     letter-spacing: 0;
@@ -172,7 +201,6 @@ const copy = {
   }
   .thesis-human {
     font-style: italic;
-    animation: arrive 0.9s ease-out 0.5s both;
   }
   @keyframes blink {
     50%,
@@ -180,15 +208,50 @@ const copy = {
       opacity: 0;
     }
   }
-  @keyframes arrive {
-    from {
-      opacity: 0;
-      transform: translateY(0.15em);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
+  /* auto-fill would leave an empty third track when a row holds two cards. */
+  .two {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  }
+  /* Secondary doors, under the two routes that sell. The rule and the shared
+     column track keep them from reading as text that fell out of a card. */
+  .side-lines {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: 0.9rem 1.25rem;
+    margin-top: 2.75rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .side-lines p {
+    margin: 0;
+  }
+  .side-lines .card-link {
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .proof-source {
+    font-family: var(--font-machine);
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: -0.5rem 0 1.5rem;
+  }
+  .quote {
+    margin: 0;
+  }
+  .quote blockquote {
+    margin: 0;
+    font-family: var(--font-human);
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+  .quote figcaption {
+    display: block;
+  }
+  .quote figcaption strong {
+    display: block;
+    font-weight: 600;
   }
   .hero-photo img {
     border-radius: 14px;

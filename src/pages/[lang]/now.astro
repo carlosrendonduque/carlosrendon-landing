@@ -14,13 +14,14 @@ const copy = {
     h1: 'Now',
     updated: 'Last updated',
     items: [
-      ['Available', 'For Salesforce, OmniStudio and applied-AI work, now. Remote or Brisbane.'],
+      ['Available', 'For Salesforce, OmniStudio and applied-AI work. Remote or Brisbane.'],
       ['Building', 'WorkBrain and Bayzara: memory and approval for AI agents.'],
       ['Writing', 'Toma 1024, my Master’s thesis.'],
       ['Producing', 'Songs for Toma 1024 and Koombia Mate.'],
     ],
     note: 'This is a now page, inspired by Derek Sivers’ nownownow.com.',
     cta: 'Get in touch',
+    ctaSubject: 'Availability',
   },
   es: {
     title: 'Ahora',
@@ -28,13 +29,14 @@ const copy = {
     h1: 'Ahora',
     updated: 'Última actualización',
     items: [
-      ['Disponible', 'Para trabajo de Salesforce, OmniStudio e IA aplicada, desde ya. Remoto o en Brisbane.'],
+      ['Disponible', 'Para trabajo de Salesforce, OmniStudio e IA aplicada. Remoto o en Brisbane.'],
       ['Construyendo', 'WorkBrain y Bayzara: memoria y aprobación para agentes de IA.'],
       ['Escribiendo', 'Toma 1024, mi trabajo de grado.'],
       ['Produciendo', 'Canciones para Toma 1024 y Koombia Mate.'],
     ],
-    note: 'Esta es una página "now", inspirada en nownownow.com de Derek Sivers.',
+    note: 'Esta es una página “now”, inspirada en nownownow.com de Derek Sivers.',
     cta: 'Hablemos',
+    ctaSubject: 'Disponibilidad',
   },
 }[lang];
 ---
@@ -54,7 +56,7 @@ const copy = {
           ))
         }
       </dl>
-      <div class="btn-row"><ChatButton label={copy.cta} /></div>
+      <div class="btn-row"><ChatButton label={copy.cta} subject={copy.ctaSubject} /></div>
       <p class="hint">{copy.note}</p>
     </div>
     </div>

@@ -327,27 +327,6 @@ section + section {
   color: var(--accent);
 }
 
-/* Definition-ish lists */
-.facts {
-  display: grid;
-  gap: 1rem 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
-  margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-.facts strong {
-  display: block;
-  font-family: var(--font-human);
-  font-size: 1.9rem;
-  font-weight: 500;
-  line-height: 1.1;
-}
-.facts span {
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
 .prose {
   max-width: var(--measure);
 }
@@ -524,7 +503,8 @@ section + section {
   padding-left: 0;
 }
 
-/* Chat triggers are buttons (they open the Conserje widget), styled like the links around them. */
+/* A chat trigger is a button while the widget is configured and a mailto link
+   otherwise, so both elements have to carry the same styling. */
 button.btn {
   cursor: pointer;
   background: transparent;
@@ -538,6 +518,7 @@ button.btn-primary {
   font: inherit;
   font-size: 0.95rem;
   color: inherit;
+  text-decoration: none;
   background: none;
   border: 0;
   padding: 0.35rem 0;

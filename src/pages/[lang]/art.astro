@@ -14,7 +14,7 @@ const copy = {
     description: 'Transmedia fiction, interactive stories and AI-assisted music by Carlos Rendón.',
     eyebrow: 'Collaborate on art',
     h1: 'Stories where the interface is the narrator',
-    lede: 'Fiction across print, web and sound, and music. AI appears twice: as a character, and as a tool that never gets the final word.',
+    lede: 'Fiction across print, web and sound. And music. AI appears twice: as a character, and as a tool that never gets the final word.',
     worksTitle: 'Works',
     open: 'Open',
     musicTitle: 'Music',
@@ -24,22 +24,24 @@ const copy = {
     collabTitle: 'Let’s make something',
     collab: 'Illustrators, book artists, musicians, vocalists, narrative game studios, festivals and universities.',
     collabCta: 'Propose a collaboration',
+    collabSubject: 'Collaboration',
   },
   es: {
     title: 'Arte',
     description: 'Ficción transmedia, historias interactivas y música con IA de Carlos Rendón.',
     eyebrow: 'Colaborar en arte',
     h1: 'Historias donde la interfaz es la narradora',
-    lede: 'Ficción entre papel, web y sonido, y música. La IA aparece dos veces: como personaje, y como herramienta que nunca tiene la última palabra.',
+    lede: 'Ficción repartida entre papel, web y sonido. Y música. La IA aparece dos veces: como personaje, y como herramienta que nunca tiene la última palabra.',
     worksTitle: 'Obras',
     open: 'Abrir',
     musicTitle: 'Música',
-    music: 'Produzco en Ableton con IA en la cadena: bocetos generados y voces sintéticas como materia prima, terminados a mano. Mi proyecto es Koombia Mate: cumbia, reguetón, electrónica y punk. Pronto los lanzamientos.',
+    music: 'Produzco en Ableton con IA en la cadena: bocetos generados y voces sintéticas como materia prima, terminados a mano. Mi proyecto es Koombia Mate: cumbia, reguetón, electrónica y punk. Los lanzamientos vienen pronto.',
     statementTitle: 'Sobre IA y autoría',
     statement: 'Los modelos proponen; yo elijo, reescribo y firmo. Cuando una pieza usa material generado, lo digo.',
     collabTitle: 'Hagamos algo',
     collab: 'Ilustradores, artistas del libro, músicos, vocalistas, estudios de juegos narrativos, festivales y universidades.',
     collabCta: 'Proponer una colaboración',
+    collabSubject: 'Colaboración',
   },
 }[lang];
 ---
@@ -98,7 +100,7 @@ const copy = {
       <div class="callout measure">
         <h2 id="collab-title">{copy.collabTitle}</h2>
         <p>{copy.collab}</p>
-        <ChatButton label={copy.collabCta} />
+        <ChatButton label={copy.collabCta} subject={copy.collabSubject} />
       </div>
     </div>
   </section>
