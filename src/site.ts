@@ -19,8 +19,9 @@ export const SITE = {
   // Umami website id; the analytics script only loads when this is set.
   umami: '',
   umamiSrc: 'https://cloud.umami.is/script.js',
-  // Published day rate floor for build work. Empty hides the price.
-  dayRate: '',
+  // Published day rate floor for build work, in AUD. Zero hides the price.
+  // Each language formats it with its own thousands separator.
+  dayRate: 1200,
   // Last content review, shown in the footer and on /now.
   updated: '2026-09-22',
 } as const;

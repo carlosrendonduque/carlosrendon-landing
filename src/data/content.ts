@@ -177,14 +177,13 @@ export const cases: Case[] = [
   },
 ];
 
-// The path, oldest first. No dates, no company names.
-export const path: L[] = [
-  { en: 'Developer, then lead developer, on payroll systems in Medellín', es: 'Desarrollador y luego líder de desarrollo en sistemas de nómina, en Medellín' },
-  { en: 'Co-founder of a software consultancy', es: 'Cofundador de una consultora de software' },
-  { en: 'Software engineer in Brisbane: aviation and university research', es: 'Ingeniero de software en Brisbane: aviación e investigación universitaria' },
-  { en: 'Salesforce and OmniStudio: integration, disability services, insurance', es: 'Salesforce y OmniStudio: integración, servicios de discapacidad, seguros' },
-  { en: 'AI model evaluation, freelance', es: 'Evaluación de modelos de IA, freelance' },
-  { en: 'Independent contractor for the health and public sectors', es: 'Contratista independiente para los sectores salud y público' },
+// Scope, not chronology. A timeline that ends on the most recent rung reads as
+// a descent whatever the rungs say, and the dated version lives on LinkedIn.
+export const scopes: L[] = [
+  { en: 'Enterprise platforms in production', es: 'Plataformas empresariales en producción' },
+  { en: 'Integration between systems', es: 'Integración entre sistemas' },
+  { en: 'Solution engineering and presales', es: 'Ingeniería de soluciones y preventa' },
+  { en: 'Applied AI', es: 'IA aplicada' },
 ];
 
 export const certifications = [

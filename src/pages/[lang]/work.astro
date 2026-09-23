@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ChatButton from '../../components/ChatButton.astro';
-import { cases, path as career, certifications } from '../../data/content';
+import { cases, scopes, certifications } from '../../data/content';
 import { SITE } from '../../site';
 import { staticLangPaths, type Lang } from '../../i18n/ui';
 
@@ -19,7 +19,7 @@ const copy = {
     ctaPrimary: 'Talk about a role',
     ctaSubject: 'Role enquiry',
     casesTitle: 'Selected work',
-    pathTitle: 'The path so far',
+    scopesTitle: 'What I work on',
     certTitle: 'Salesforce certifications',
     note: 'Australian and Colombian citizen · security cleared · English and Spanish',
   },
@@ -33,7 +33,7 @@ const copy = {
     ctaPrimary: 'Hablemos de un rol',
     ctaSubject: 'Consulta sobre un rol',
     casesTitle: 'Trabajo destacado',
-    pathTitle: 'El recorrido',
+    scopesTitle: 'En qué trabajo',
     certTitle: 'Certificaciones Salesforce',
     note: 'Ciudadano australiano y colombiano · habilitación de seguridad · español e inglés',
   },
@@ -81,11 +81,11 @@ const copy = {
     </div>
   </section>
 
-  <section aria-labelledby="path-title">
+  <section aria-labelledby="scopes-title">
     <div class="wrap two-col">
       <div>
-        <h2 id="path-title">{copy.pathTitle}</h2>
-        <ol class="career">{career.map((step) => <li>{step[lang]}</li>)}</ol>
+        <h2 id="scopes-title">{copy.scopesTitle}</h2>
+        <ul class="scopes">{scopes.map((s) => <li>{s[lang]}</li>)}</ul>
       </div>
       <div>
         <h2>{copy.certTitle}</h2>
@@ -109,30 +109,28 @@ const copy = {
     gap: 2rem 4rem;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   }
-  .career {
+  /* No rail and no emphasised last item: these are areas of work, not steps,
+     and nothing here is further along than anything else. */
+  .scopes {
     list-style: none;
     padding: 0;
     margin: 0;
-    border-left: 2px solid var(--line);
+    display: grid;
+    gap: 0.7rem;
   }
-  .career li {
+  .scopes li {
     position: relative;
-    padding: 0 0 1.1rem 1.25rem;
+    padding-left: 1.1rem;
   }
-  .career li::before {
+  .scopes li::before {
     content: '';
     position: absolute;
-    left: -6px;
-    top: 0.55em;
-    width: 10px;
-    height: 10px;
+    left: 0;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: var(--bg);
-    border: 2px solid var(--muted);
-  }
-  .career li:last-child::before {
     background: var(--accent);
-    border-color: var(--accent);
   }
   .certs li {
     font-size: 0.8rem;
