@@ -17,7 +17,7 @@ export const SITE = {
   // Replace the whole expression with the deployed https URL to go live.
   conserje: import.meta.env.DEV ? 'http://localhost:8000/chat' : '',
   // Umami website id; the analytics script only loads when this is set.
-  umami: '',
+  umami: '0c89b82e-bc41-4191-aba1-ab86e7c79269',
   umamiSrc: 'https://cloud.umami.is/script.js',
   // Published day rate floor for build work, in AUD. Zero hides the price.
   // Each language formats it with its own thousands separator.
