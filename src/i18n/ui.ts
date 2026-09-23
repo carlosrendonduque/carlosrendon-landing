@@ -34,7 +34,7 @@ export const ui = {
     },
     newsletter: {
       title: 'A monthly letter',
-      body: 'Once a month: what I built, what I wrote, what I heard. Three short sections (Build, Work, Music), one email, no tracking pixels.',
+      body: 'Once a month: what I built, what I wrote, what I heard. Three short sections (Build, Fiction, Music), one email, no tracking pixels.',
       label: 'Email address',
       cta: 'Subscribe',
       fallback: 'The first issue is on its way. Email me and I’ll add you to the list.',
