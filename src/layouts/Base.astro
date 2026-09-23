@@ -54,6 +54,7 @@ const navItems: { page: Page; label: string }[] = [
     <meta property="og:locale:alternate" content={ogLocale[other]} />
     <meta name="twitter:card" content="summary_large_image" />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {SITE.umami && <script is:inline src={SITE.umamiSrc} data-website-id={SITE.umami} defer />}
   </head>
   <body>
     <a class="skip" href="#main">{t.skip}</a>
@@ -98,16 +99,22 @@ const navItems: { page: Page; label: string }[] = [
         </p>
       </div>
     </footer>
-    <!-- Conserje chat widget: a one-shot IIFE that reads document.currentScript, so it lives here, once per document. -->
-    <script
-      is:inline
-      src="/conserje.js"
-      data-endpoint="http://localhost:8000/chat"
-      data-site="carlosrendon"
-      data-title="Carlos Rendón"
-      data-greeting={t.chat.greeting}
-      data-locale={lang}
-      data-accent="#b8291f"
-      defer></script>
+    {
+      /* Conserje chat widget: a one-shot IIFE that reads document.currentScript, so it lives here, once per
+         document. It only loads when its backend is configured; otherwise every chat button is a mailto link. */
+      SITE.conserje && (
+        <script
+          is:inline
+          src="/conserje.js"
+          data-endpoint={SITE.conserje}
+          data-site="carlosrendon"
+          data-title="Carlos Rendón"
+          data-greeting={t.chat.greeting}
+          data-locale={lang}
+          data-accent="#b8291f"
+          defer
+        />
+      )
+    }
   </body>
 </html>

@@ -1,14 +1,23 @@
 ---
-import { SITE } from '../site';
+import { SITE, mailto } from '../site';
 
 interface Props {
   label: string;
   variant?: 'primary' | 'ghost' | 'link';
+  subject?: string;
 }
-const { label, variant = 'primary' } = Astro.props;
+const { label, variant = 'primary', subject = 'Project enquiry' } = Astro.props;
 const cls = variant === 'link' ? 'chat-link' : `btn btn-${variant}`;
-// Opens the Conserje chat; falls back to email if the widget failed to load.
-const onclick = `window.Conserje ? window.Conserje.open() : (location.href = 'mailto:${SITE.email}')`;
+const href = mailto(subject);
+// The chat only exists once its backend is configured. Until then every call to
+// action is a plain mailto link, so nothing opens a chat that cannot answer.
+const onclick = `window.Conserje ? window.Conserje.open() : (location.href = '${href}')`;
 ---
 
-<button type="button" class={cls} onclick={onclick}>{label}</button>
+{
+  SITE.conserje ? (
+    <button type="button" class={cls} onclick={onclick} data-umami-event="cta-chat">{label}</button>
+  ) : (
+    <a class={cls} href={href} data-umami-event="cta-email">{label}</a>
+  )
+}
