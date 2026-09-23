@@ -24,6 +24,10 @@ export const ui = {
     },
     chat: {
       cta: 'Tell me about your project',
+      // Header of the chat panel. Says "assistant" rather than "Carlos" so the
+      // header and the greeting agree about who is answering -- on a personal
+      // brand, the name alone reads as the person being on the other end.
+      title: 'Carlos’s assistant',
       greeting: 'Hi, I’m Carlos’s assistant. What are you working on?',
     },
     langSwitch: 'Leer en español',
@@ -59,6 +63,7 @@ export const ui = {
     },
     chat: {
       cta: 'Cuéntame tu proyecto',
+      title: 'Asistente de Carlos',
       greeting: 'Hola, soy el asistente de Carlos. ¿En qué estás trabajando?',
     },
     langSwitch: 'Read in English',
