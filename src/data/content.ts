@@ -63,18 +63,6 @@ export const labProjects: Project[] = [
     status: { en: 'In daily use', es: 'En uso diario' },
   },
   {
-    id: 'dataset-preflight',
-    name: 'dataset-preflight',
-    tagline: { en: 'Checks a report against its data', es: 'Verifica un informe contra sus datos' },
-    body: {
-      en: 'Fails if a number in the text can’t be derived from the delivered file, and suggests the one you probably meant.',
-      es: 'Falla si una cifra del texto no se puede derivar del archivo entregado, y sugiere la que probablemente querías.',
-    },
-    stack: ['Python', 'CLI'],
-    status: { en: 'Open source', es: 'Código abierto' },
-    repo: 'https://github.com/carlosrendonduque/dataset-preflight',
-  },
-  {
     id: 'calamus',
     name: 'calamus',
     tagline: { en: 'Reader components for digital stories', es: 'Componentes de lectura para historias digitales' },

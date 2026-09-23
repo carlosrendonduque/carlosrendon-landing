@@ -7,7 +7,7 @@ export const SITE = {
   linkedin: 'https://www.linkedin.com/in/carlosrendonduque/',
   github: 'https://github.com/carlosrendonduque',
   // Buttondown username; the newsletter form posts to it when set.
-  buttondown: '',
+  buttondown: 'carlosrendon',
   // Conserje chat backend. The widget only renders when this has a value.
   // In dev it points at the local backend (php -S localhost:8000 -t public in
   // ~/Documents/repos/artificial-intelligence/conserje), so the chat is there

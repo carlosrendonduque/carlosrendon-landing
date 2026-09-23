@@ -6,7 +6,7 @@ Contact: carlos.rendon.duque@gmail.com · https://www.linkedin.com/in/carlosrend
 
 - [Work](https://carlosrendon.co/en/work/): Salesforce and OmniStudio for health, public sector and insurance; 8 Salesforce certifications.
 - [Consulting](https://carlosrendon.co/en/consulting/): free scoping chat with an AI assistant (the chat on every page); readiness review (AUD 2,500, two weeks); build and integrate.
-- [Lab](https://carlosrendon.co/en/lab/): Conserje (lead-qualifying chat routed through n8n; the chat on this site), WorkBrain (MCP memory server), Bayzara (agents that ask before they act), Conato (editor where the model only proposes), dataset-preflight, calamus, tonotopia.
+- [Lab](https://carlosrendon.co/en/lab/): Conserje (lead-qualifying chat routed through n8n; the chat on this site), WorkBrain (MCP memory server), Bayzara (agents that ask before they act), Conato (editor where the model only proposes), calamus, tonotopia.
 - [Art](https://carlosrendon.co/en/art/): Toma 1024 (Master's thesis, in development), Nullheim, Fragmentado, Parallax Story, and music (Koombia Mate).
 - [About](https://carlosrendon.co/en/about/) · [Now](https://carlosrendon.co/en/now/)
 - Spanish: replace /en/ with /es/.
