@@ -19,8 +19,8 @@ const t = ui[lang];
     {project.stack.map((s) => <li>{s}</li>)}
   </ul>
   <div class="card-foot">
-    {project.repo && <a class="card-link" href={project.repo}>{t.repo}<span class="visually-hidden">: {project.name}</span></a>}
-    {project.live && <a class="card-link" href={project.live}>{t.live}</a>}
+    {project.repo && <a class="card-link" href={project.repo} target="_blank" rel="noopener">{t.repo}<span class="visually-hidden">: {project.name}</span></a>}
+    {project.live && <a class="card-link" href={project.live} target="_blank" rel="noopener">{t.live}</a>}
     {!project.repo && !project.live && <span class="machine">{t.private}</span>}
   </div>
 </article>

@@ -55,7 +55,7 @@ const copy = {
     <div class="wrap">
       <h2 id="story-title">{copy.storyTitle}</h2>
       <div class="grid">{story.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
-      <div class="btn-row"><a class="btn btn-ghost" href={SITE.github}>{copy.github}</a></div>
+      <div class="btn-row"><a class="btn btn-ghost" href={SITE.github} target="_blank" rel="noopener">{copy.github}</a></div>
     </div>
   </section>
 </Base>

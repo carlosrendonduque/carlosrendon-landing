@@ -80,7 +80,7 @@ const copy = {
         <p class="availability"><span aria-hidden="true"></span>{copy.available}</p>
         <div class="btn-row">
           <ChatButton label={ui[lang].chat.cta} subject={copy.ctaSubject} />
-          <a class="btn btn-ghost" href={SITE.linkedin}>LinkedIn</a>
+          <a class="btn btn-ghost" href={SITE.linkedin} target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
       <picture class="hero-photo">
@@ -117,7 +117,7 @@ const copy = {
         <div class="wrap">
           <h2 id="proof-title">{copy.proofTitle}</h2>
           <p class="proof-source">
-            <a href={SITE.linkedin}>{copy.proofSource}</a>
+            <a href={SITE.linkedin} target="_blank" rel="noopener">{copy.proofSource}</a>
           </p>
           <div class="grid two">
             {testimonials.map((t) => (
