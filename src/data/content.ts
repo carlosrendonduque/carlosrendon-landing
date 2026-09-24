@@ -74,6 +74,7 @@ export const labProjects: Project[] = [
     stack: ['React', 'TypeScript'],
     status: { en: 'Open source', es: 'Código abierto' },
     repo: 'https://github.com/carlosrendonduque/calamus',
+    live: 'https://carlosrendonduque.github.io/calamus/',
   },
   {
     id: 'tonotopia',
