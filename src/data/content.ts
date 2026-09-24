@@ -84,19 +84,6 @@ export const labProjects: Project[] = [
     repo: 'https://github.com/carlosrendonduque/calamus',
     live: 'https://carlosrendonduque.github.io/calamus/',
   },
-  {
-    id: 'tonotopia',
-    kind: 'story',
-    name: 'tonotopia',
-    tagline: { en: 'Sound that reacts to the reader', es: 'Sonido que reacciona al lector' },
-    body: {
-      en: 'A Web Audio engine where scenes change with what the reader does.',
-      es: 'Un motor de Web Audio donde las escenas cambian según lo que hace el lector.',
-    },
-    stack: ['TypeScript', 'Web Audio'],
-    status: { en: 'Early version', es: 'Versión temprana' },
-    repo: 'https://github.com/carlosrendonduque/tonotopia',
-  },
 ];
 
 // Public cases describe the class of problem, never the product that happened to
