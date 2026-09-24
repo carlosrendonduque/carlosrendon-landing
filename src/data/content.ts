@@ -7,6 +7,9 @@ type L = Record<Lang, string>;
 export interface Project {
   id: string;
   name: string;
+  // Which section of /lab this belongs to. Explicit, because slicing the array
+  // by position meant removing one project silently reclassified another.
+  kind: 'ai' | 'story';
   tagline: L;
   body: L;
   stack: string[];
@@ -18,6 +21,7 @@ export interface Project {
 export const labProjects: Project[] = [
   {
     id: 'conserje',
+    kind: 'ai',
     name: 'Conserje',
     tagline: { en: 'A chat that qualifies leads, routed through n8n', es: 'Un chat que califica leads y los enruta con n8n' },
     body: {
@@ -30,6 +34,7 @@ export const labProjects: Project[] = [
   },
   {
     id: 'workbrain',
+    kind: 'ai',
     name: 'WorkBrain',
     tagline: { en: 'Project memory for AI coding assistants', es: 'Memoria de proyecto para asistentes de código' },
     body: {
@@ -42,6 +47,7 @@ export const labProjects: Project[] = [
   },
   {
     id: 'bayzara',
+    kind: 'ai',
     name: 'Bayzara',
     tagline: { en: 'AI agents that ask before they act', es: 'Agentes de IA que preguntan antes de actuar' },
     body: {
@@ -53,6 +59,7 @@ export const labProjects: Project[] = [
   },
   {
     id: 'conato',
+    kind: 'ai',
     name: 'Conato',
     tagline: { en: 'A writing editor where the model only proposes', es: 'Un editor donde el modelo solo propone' },
     body: {
@@ -65,6 +72,7 @@ export const labProjects: Project[] = [
   },
   {
     id: 'calamus',
+    kind: 'story',
     name: 'calamus',
     tagline: { en: 'Reader components for digital stories', es: 'Componentes de lectura para historias digitales' },
     body: {
@@ -78,6 +86,7 @@ export const labProjects: Project[] = [
   },
   {
     id: 'tonotopia',
+    kind: 'story',
     name: 'tonotopia',
     tagline: { en: 'Sound that reacts to the reader', es: 'Sonido que reacciona al lector' },
     body: {

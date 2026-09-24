@@ -8,8 +8,8 @@ import { staticLangPaths, type Lang } from '../../i18n/ui';
 export const getStaticPaths = staticLangPaths;
 const lang = Astro.params.lang as Lang;
 
-const ai = labProjects.slice(0, 5);
-const story = labProjects.slice(5);
+const ai = labProjects.filter((p) => p.kind === 'ai');
+const story = labProjects.filter((p) => p.kind === 'story');
 
 const copy = {
   en: {
