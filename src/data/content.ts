@@ -56,11 +56,12 @@ export const labProjects: Project[] = [
     name: 'Conato',
     tagline: { en: 'A writing editor where the model only proposes', es: 'Un editor donde el modelo solo propone' },
     body: {
-      en: 'Claude, GPT, Gemini and DeepSeek in one editor. Every suggestion arrives as a diff; nothing enters the text until the author accepts it.',
-      es: 'Claude, GPT, Gemini y DeepSeek en un solo editor. Cada sugerencia llega como un diff; nada entra al texto hasta que el autor la acepta.',
+      en: 'Every request carries your canon and the passages from the rest of your work that bear on it, so an answer never arrives context-free. Self-hosted and single-user.',
+      es: 'Cada petición lleva tu canon y los pasajes del resto de tu obra que vienen al caso, así que ninguna respuesta llega sin contexto. Autoalojado y de un solo usuario.',
     },
-    stack: ['Next.js', 'Vercel AI SDK', 'pgvector'],
+    stack: ['Next.js', 'TipTap', 'Vercel AI SDK', 'pgvector'],
     status: { en: 'In daily use', es: 'En uso diario' },
+    repo: 'https://github.com/carlosrendonduque/conato',
   },
   {
     id: 'calamus',
