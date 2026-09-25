@@ -9,6 +9,7 @@ export const getStaticPaths = staticLangPaths;
 const lang = Astro.params.lang as Lang;
 
 const ai = labProjects.filter((p) => p.kind === 'ai');
+const foundations = labProjects.filter((p) => p.kind === 'foundations');
 const story = labProjects.filter((p) => p.kind === 'story');
 
 const copy = {
@@ -19,6 +20,8 @@ const copy = {
     h1: 'Tools I build and use',
     lede: 'Built on existing models, not ones I trained. Same rule everywhere: a person defines what runs on its own and what waits for approval.',
     aiTitle: 'Applied AI',
+    foundationsTitle: 'Evals and foundations',
+    foundationsLede: 'Where I measure agents and learn the layers underneath: tokenizers, sampling and, next, training.',
     storyTitle: 'For storytelling',
     github: 'More on GitHub',
   },
@@ -29,6 +32,8 @@ const copy = {
     h1: 'Herramientas que construyo y uso',
     lede: 'Sobre modelos existentes, no entrenados por mí. La misma regla en todas: una persona define qué corre solo y qué espera aprobación.',
     aiTitle: 'IA aplicada',
+    foundationsTitle: 'Evaluación y fundamentos',
+    foundationsLede: 'Donde mido agentes y aprendo las capas de abajo: tokenizadores, muestreo y, después, entrenamiento.',
     storyTitle: 'Para narrar',
     github: 'Más en GitHub',
   },
@@ -48,6 +53,14 @@ const copy = {
     <div class="wrap">
       <h2 id="ai-title">{copy.aiTitle}</h2>
       <div class="grid">{ai.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
+    </div>
+  </section>
+
+  <section aria-labelledby="foundations-title">
+    <div class="wrap">
+      <h2 id="foundations-title">{copy.foundationsTitle}</h2>
+      <p>{copy.foundationsLede}</p>
+      <div class="grid">{foundations.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
     </div>
   </section>
 

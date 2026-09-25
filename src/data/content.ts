@@ -9,7 +9,7 @@ export interface Project {
   name: string;
   // Which section of /lab this belongs to. Explicit, because slicing the array
   // by position meant removing one project silently reclassified another.
-  kind: 'ai' | 'story';
+  kind: 'ai' | 'foundations' | 'story';
   tagline: L;
   body: L;
   stack: string[];
@@ -28,7 +28,7 @@ export const labProjects: Project[] = [
       en: 'The chat on this site. A short conversation instead of a form: it extracts a brief, scores it, and hands it to n8n workflows for notifications, email and CRM.',
       es: 'El chat de este sitio. Una conversación corta en lugar de un formulario: extrae un brief, lo califica y lo entrega a flujos de n8n para avisos, correo y CRM.',
     },
-    stack: ['n8n', 'PHP', 'Vanilla JS', 'Claude'],
+    stack: ['n8n', 'TypeScript', 'Vanilla JS', 'Claude'],
     status: { en: 'Open source', es: 'Código abierto' },
     repo: 'https://github.com/carlosrendonduque/conserje',
   },
@@ -69,6 +69,71 @@ export const labProjects: Project[] = [
     stack: ['Next.js', 'TipTap', 'Vercel AI SDK', 'pgvector'],
     status: { en: 'In daily use', es: 'En uso diario' },
     repo: 'https://github.com/carlosrendonduque/conato',
+  },
+  {
+    id: 'vigia',
+    kind: 'ai',
+    name: 'vigia',
+    tagline: { en: 'Watches public tenders so a person decides which to bid for', es: 'Vigila licitaciones públicas para que una persona decida a cuáles presentarse' },
+    body: {
+      en: 'Reads Colombia’s open procurement data, flags what is new since the last run and matches it against a company’s profile. Every reason it gives is checked against the record. It recommends; it never bids.',
+      es: 'Lee los datos abiertos de contratación pública de Colombia, marca lo nuevo desde la última revisión y lo cruza con el perfil de una empresa. Cada razón que da se verifica contra el registro. Recomienda; nunca se presenta.',
+    },
+    stack: ['Python', 'Open data', 'SQLite', 'Claude'],
+    status: { en: 'Prototype', es: 'Prototipo' },
+    repo: 'https://github.com/carlosrendonduque/vigia',
+  },
+  {
+    id: 'release-radar',
+    kind: 'ai',
+    name: 'Release Radar',
+    tagline: { en: 'Which parts of a Salesforce release touch your org', es: 'Qué partes de un release de Salesforce tocan tu org' },
+    body: {
+      en: 'Reads the release notes, maps an org’s metadata and returns what may break and what to test, each point quoted from the source. The tool does the reading; the consultant decides.',
+      es: 'Lee las notas del release, mapea la metadata de una org y devuelve qué puede romperse y qué probar, cada punto citado de la fuente. La herramienta hace la lectura; el consultor decide.',
+    },
+    stack: ['Python', 'BM25', 'Headless Chrome', 'Claude'],
+    status: { en: 'Prototype', es: 'Prototipo' },
+    repo: 'https://github.com/carlosrendonduque/salesforce-release-radar',
+  },
+  {
+    id: 'veredicto',
+    kind: 'foundations',
+    name: 'veredicto',
+    tagline: { en: 'Does your agent ask before it acts?', es: '¿Tu agente pregunta antes de actuar?' },
+    body: {
+      en: 'An eval harness that measures when a tool-using agent acts, asks a person or refuses, including when a document tries to hijack it. The score comes from what the agent did, not from what it said.',
+      es: 'Un banco de pruebas que mide cuándo un agente con herramientas actúa, le pregunta a una persona o se niega, incluso cuando un documento intenta secuestrarlo. La nota sale de lo que el agente hizo, no de lo que dijo.',
+    },
+    stack: ['Python', 'Evals', 'OpenTelemetry', 'Claude'],
+    status: { en: 'Prototype', es: 'Prototipo' },
+    repo: 'https://github.com/carlosrendonduque/veredicto',
+  },
+  {
+    id: 'crisol',
+    kind: 'foundations',
+    name: 'crisol',
+    tagline: { en: 'Lab notes on what happens inside a language model', es: 'Notas de laboratorio sobre lo que pasa dentro de un modelo de lenguaje' },
+    body: {
+      en: 'A tokenizer and samplers written from scratch, run on a small local model. First finding: the same text costs 7–42% more tokens in Spanish than in English.',
+      es: 'Un tokenizador y muestreadores escritos desde cero, sobre un modelo local pequeño. Primer hallazgo: el mismo texto cuesta entre 7 % y 42 % más tokens en español que en inglés.',
+    },
+    stack: ['Python', 'MLX', 'NumPy'],
+    status: { en: 'Open source', es: 'Código abierto' },
+    repo: 'https://github.com/carlosrendonduque/crisol',
+  },
+  {
+    id: 'forja',
+    kind: 'foundations',
+    name: 'forja',
+    tagline: { en: 'Training small models, from scratch to fine-tuning', es: 'Entrenar modelos pequeños, desde cero hasta el ajuste fino' },
+    body: {
+      en: 'The labs where I train instead of prompt: a transformer from scratch, LoRA, preference tuning and reinforcement learning with verifiable rewards. Planned and budgeted, not run yet.',
+      es: 'Los laboratorios donde entreno en vez de solo instruir: un transformer desde cero, LoRA, ajuste por preferencias y aprendizaje por refuerzo con recompensas verificables. Planeados y presupuestados, aún sin correr.',
+    },
+    stack: ['PyTorch', 'MLX', 'TRL'],
+    status: { en: 'Planned', es: 'Planeado' },
+    repo: 'https://github.com/carlosrendonduque/forja',
   },
   {
     id: 'calamus',
