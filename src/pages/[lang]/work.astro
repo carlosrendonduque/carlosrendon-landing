@@ -21,6 +21,7 @@ const copy = {
     casesTitle: 'Selected work',
     scopesTitle: 'What I work on',
     certTitle: 'Salesforce certifications',
+    certSource: 'Verify on Trailblazer',
     note: 'Australian and Colombian citizen · security cleared · English and Spanish',
   },
   es: {
@@ -35,6 +36,7 @@ const copy = {
     casesTitle: 'Trabajo destacado',
     scopesTitle: 'En qué trabajo',
     certTitle: 'Certificaciones Salesforce',
+    certSource: 'Verificar en Trailblazer',
     note: 'Ciudadano australiano y colombiano · habilitación de seguridad · español e inglés',
   },
 }[lang];
@@ -90,6 +92,7 @@ const copy = {
       <div>
         <h2>{copy.certTitle}</h2>
         <ul class="tags certs">{certifications.map((c) => <li>{c}</li>)}</ul>
+        <p class="cert-source"><a href={SITE.trailblazer} target="_blank" rel="noopener">{copy.certSource}</a></p>
       </div>
     </div>
   </section>
@@ -134,6 +137,11 @@ const copy = {
   }
   .certs li {
     font-size: 0.8rem;
+  }
+  .cert-source {
+    font-family: var(--font-machine);
+    font-size: 0.8rem;
+    margin: 0.9rem 0 0;
   }
   .eligibility {
     display: inline-block;

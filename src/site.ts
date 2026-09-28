@@ -6,6 +6,7 @@ export const SITE = {
   email: 'carlos.rendon.duque@gmail.com',
   linkedin: 'https://www.linkedin.com/in/carlosrendonduque/',
   github: 'https://github.com/carlosrendonduque',
+  trailblazer: 'https://www.salesforce.com/trailblazer/carlosrendonduque',
   // Buttondown username; the newsletter form posts to it when set.
   buttondown: 'carlosrendon',
   // Conserje chat backend. The widget only renders when this has a value.
