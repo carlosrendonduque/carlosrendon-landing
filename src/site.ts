@@ -29,7 +29,7 @@ export const SITE = {
   // Each language formats it with its own thousands separator.
   dayRate: 1200,
   // Last content review, shown in the footer and on /now.
-  updated: '2026-09-25',
+  updated: '2026-09-28',
 } as const;
 
 export const mailto = (subject: string, body = '') =>

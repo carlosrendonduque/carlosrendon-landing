@@ -8,7 +8,9 @@ export default defineConfig({
   i18n: {
     locales: ['en', 'es'],
     defaultLocale: 'en',
-    routing: { prefixDefaultLocale: true, redirectToDefaultLocale: true },
+    // redirectToDefaultLocale is off because Astro's generated root page waits two
+    // seconds before it moves. src/pages/index.astro does it instantly instead.
+    routing: { prefixDefaultLocale: true, redirectToDefaultLocale: false },
   },
   integrations: [
     sitemap({

@@ -72,7 +72,7 @@ const navItems: { page: Page; label: string }[] = [
                 </li>
               ))
             }
-            <li><ChatButton label={t.nav.contact} variant="link" /></li>
+            <li><ChatButton label={t.nav.contact} subject={t.chat.subject} variant="link" /></li>
           </ul>
         </nav>
         <a class="lang-switch" href={path(other, page)} hreflang={htmlLang[other]} lang={htmlLang[other]}>
