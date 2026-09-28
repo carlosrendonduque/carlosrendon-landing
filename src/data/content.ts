@@ -264,6 +264,13 @@ export interface Artwork {
   live?: string;
 }
 
+// The finished pieces are not linked from here while they are being curated.
+// They run, and anyone who goes looking can still find them; the site simply
+// does not hand them over before the last pass. To put a link back, restore the
+// `live` field:
+//   nullheim        https://nullheim.lovable.app
+//   fragmentado     https://carlosrendonduque.github.io/fragmentado/
+//   parallax-story  https://carlosrendonduque.github.io/parallax-story/
 export const artworks: Artwork[] = [
   {
     id: 'toma-1024',
@@ -283,7 +290,7 @@ export const artworks: Artwork[] = [
       en: 'Inside a decaying Unix terminal, you talk to Nevet, an archive AI.',
       es: 'Dentro de una terminal Unix en decadencia, conversas con Nevet, una IA archivista.',
     },
-    live: 'https://nullheim.lovable.app',
+    status: { en: 'In curation', es: 'En curaduría' },
   },
   {
     id: 'fragmentado',
@@ -293,7 +300,7 @@ export const artworks: Artwork[] = [
       en: 'Three acts, three centuries. Read it as a video call, a chat, a profile or a visual novel.',
       es: 'Tres actos, tres siglos. Se lee como videollamada, chat, perfil o novela visual.',
     },
-    live: 'https://carlosrendonduque.github.io/fragmentado/',
+    status: { en: 'In curation', es: 'En curaduría' },
   },
   {
     id: 'parallax-story',
@@ -303,6 +310,6 @@ export const artworks: Artwork[] = [
       en: 'Location, motion, camera and weather shape what you read.',
       es: 'La ubicación, el movimiento, la cámara y el clima cambian lo que lees.',
     },
-    live: 'https://carlosrendonduque.github.io/parallax-story/',
+    status: { en: 'In curation', es: 'En curaduría' },
   },
 ];
