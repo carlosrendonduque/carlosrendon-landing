@@ -48,6 +48,7 @@ export const labProjects: Project[] = [
     stack: ['MCP', 'TypeScript', 'Postgres + pgvector', 'Claude'],
     status: { en: 'In daily use', es: 'En uso diario' },
     repo: 'https://github.com/carlosrendonduque/workbrain-mcp',
+    demo: 'https://github.com/carlosrendonduque/workbrain-mcp#see-it-work',
   },
   {
     id: 'bayzara',
