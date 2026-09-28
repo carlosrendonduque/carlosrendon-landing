@@ -35,6 +35,7 @@ export const labProjects: Project[] = [
     stack: ['n8n', 'TypeScript', 'Vanilla JS', 'Claude'],
     status: { en: 'Open source', es: 'Código abierto' },
     repo: 'https://github.com/carlosrendonduque/conserje',
+    demo: 'https://github.com/carlosrendonduque/conserje#see-it-work',
   },
   {
     id: 'workbrain',
