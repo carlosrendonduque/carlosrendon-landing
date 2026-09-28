@@ -15,6 +15,10 @@ export interface Project {
   stack: string[];
   status: L;
   repo?: string;
+  // A recording of the thing working. Separate from `live`, which promises a
+  // running instance — Conato has none on purpose, because a hosted demo would
+  // spend API credit on every visitor.
+  demo?: string;
   live?: string;
 }
 
@@ -134,6 +138,7 @@ export const labProjects: Project[] = [
     stack: ['Next.js', 'TipTap', 'Vercel AI SDK', 'pgvector'],
     status: { en: 'In daily use', es: 'En uso diario' },
     repo: 'https://github.com/carlosrendonduque/conato',
+    demo: 'https://github.com/carlosrendonduque/conato#see-it-work',
   },
   {
     id: 'calamus',

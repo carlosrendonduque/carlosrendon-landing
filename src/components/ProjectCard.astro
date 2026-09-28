@@ -20,6 +20,7 @@ const t = ui[lang];
   </ul>
   <div class="card-foot">
     {project.repo && <a class="card-link" href={project.repo} target="_blank" rel="noopener">{t.repo}<span class="visually-hidden">: {project.name}</span></a>}
+    {project.demo && <a class="card-link" href={project.demo} target="_blank" rel="noopener">{t.demo}<span class="visually-hidden">: {project.name}</span></a>}
     {project.live && <a class="card-link" href={project.live} target="_blank" rel="noopener">{t.live}</a>}
     {!project.repo && !project.live && <span class="machine">{t.private}</span>}
   </div>
