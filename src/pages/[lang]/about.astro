@@ -12,7 +12,8 @@ const copy = {
   en: {
     title: 'About',
     description: 'Carlos Rendón: applied-AI engineer and writer of transmedia fiction, from Medellín, based in Brisbane.',
-    h1: 'Between systems and people',
+    h1: '“We are human, after all”',
+    h1Credit: 'Daft Punk',
     photoAlt: 'Carlos Rendón in his home studio with headphones and a guitar.',
     story: [
       'I’m from Medellín and I now live in Brisbane. I build AI tools that I use every day.',
@@ -34,7 +35,8 @@ const copy = {
   es: {
     title: 'Sobre mí',
     description: 'Carlos Rendón: ingeniero de IA aplicada y escritor de ficción transmedia, de Medellín, radicado en Brisbane.',
-    h1: 'Entre sistemas y personas',
+    h1: '“Al fin de cuentas somos humanos”',
+    h1Credit: 'Daft Punk',
     photoAlt: 'Carlos Rendón en su estudio casero con audífonos y una guitarra.',
     story: [
       'Soy de Medellín y ahora vivo en Brisbane. Construyo herramientas de IA que uso todos los días.',
@@ -69,6 +71,7 @@ const jsonLd = {
     <div class="wrap about-grid">
       <div class="prose">
         <h1>{copy.h1}</h1>
+        <p class="h1-credit">{copy.h1Credit}</p>
         {copy.story.map((p) => <p>{p}</p>)}
         <h2 class="edu-title">{copy.eduTitle}</h2>
         <ul>{copy.edu.map((e) => <li>{e}</li>)}</ul>
@@ -96,6 +99,14 @@ const jsonLd = {
   }
   .about-photo {
     border-radius: 14px;
+  }
+  /* The heading is a borrowed line, so it is quoted and attributed. */
+  .h1-credit {
+    font-family: var(--font-machine);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--faint);
+    margin: -0.7rem 0 1.7rem;
   }
   .edu-title {
     font-size: 1.4rem;
