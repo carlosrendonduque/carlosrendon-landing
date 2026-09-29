@@ -16,8 +16,7 @@ const copy = {
     description: 'I put AI inside the process your people already work in, with governance, measurement and someone accountable for every decision. Brisbane or remote.',
     eyebrow: 'Brisbane · remote · English & Spanish',
     h1: 'AI inside your process, not beside it.',
-    lede: 'That takes understanding the architecture, the business, and the person who will use it. I build with governance, measurement, and someone accountable for every decision.',
-    available: 'Available for contracts now',
+    lede: 'I understand the architecture, the business, and the person who will use it. I build with governance, measurement, and someone accountable for every decision.',
     photoAlt: 'Carlos Rendón smiling at a desk in an open-plan office, hands clasped under his chin.',
     ctaSubject: 'Project enquiry',
     routesTitle: 'What brings you here?',
@@ -44,8 +43,7 @@ const copy = {
     description: 'Meto la IA dentro del proceso en el que tu gente ya trabaja, con gobernanza, medición y alguien que responde por cada decisión. Brisbane o remoto.',
     eyebrow: 'Brisbane · remoto · español e inglés',
     h1: 'Que la IA trabaje dentro de tu proceso, no al lado.',
-    lede: 'Eso exige entender la arquitectura, el negocio y a la persona que lo va a usar. Construyo con gobernanza, medición y alguien que responde por cada decisión.',
-    available: 'Disponible para contratos desde ya',
+    lede: 'Entiendo la arquitectura, el negocio y a la persona que lo va a usar. Construyo con gobernanza, medición y alguien que responde por cada decisión.',
     photoAlt: 'Carlos Rendón sonriendo en el escritorio de una oficina abierta, con las manos entrelazadas bajo el mentón.',
     ctaSubject: 'Consulta de proyecto',
     routesTitle: '¿Qué te trae por aquí?',
@@ -77,7 +75,6 @@ const copy = {
         <span class="eyebrow">{copy.eyebrow}</span>
         <h1 class="measure">{copy.h1}</h1>
         <p class="lede">{copy.lede}</p>
-        <p class="availability"><span aria-hidden="true"></span>{copy.available}</p>
         <div class="btn-row">
           <ChatButton label={ui[lang].chat.cta} subject={copy.ctaSubject} />
           <a class="btn btn-ghost" href={SITE.linkedin} target="_blank" rel="noopener">LinkedIn</a>
@@ -259,21 +256,6 @@ const copy = {
     object-fit: cover;
     object-position: 50% 15%;
     width: 100%;
-  }
-  .availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-machine);
-    font-size: 0.85rem;
-    margin: 0.5rem 0 0;
-  }
-  .availability span {
-    width: 0.55rem;
-    height: 0.55rem;
-    border-radius: 50%;
-    background: #2e9d5a;
-    box-shadow: 0 0 0 3px color-mix(in srgb, #2e9d5a 25%, transparent);
   }
   .route {
     text-decoration: none;
