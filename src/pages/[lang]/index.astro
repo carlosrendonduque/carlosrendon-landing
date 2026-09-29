@@ -30,13 +30,6 @@ const copy = {
     artCta: 'See the art',
     proofTitle: 'From people I’ve worked with',
     proofSource: 'Published on LinkedIn',
-    machine: 'AI proposes,',
-    human: 'the human decides.',
-    thesis: [
-      ['Enterprise', 'AI goes into systems already in production; whoever answers for them still decides.'],
-      ['AI tools', 'Agents propose; a person approves what matters.'],
-      ['Fiction and music', 'AI as a character in the fiction; in the music, no stage advances without my approval.'],
-    ],
   },
   es: {
     title: 'Carlos Rendón — Ingeniero de IA aplicada: MCP y agentes',
@@ -57,13 +50,6 @@ const copy = {
     artCta: 'Ver el arte',
     proofTitle: 'De la gente con la que he trabajado',
     proofSource: 'Publicadas en LinkedIn',
-    machine: 'La IA propone,',
-    human: 'el humano decide.',
-    thesis: [
-      ['Empresa', 'La IA entra a sistemas que ya están en producción; quien responde por ellos sigue decidiendo.'],
-      ['Herramientas de IA', 'Los agentes proponen; una persona aprueba lo que importa.'],
-      ['Ficción y música', 'La IA como personaje en la ficción; en la música, ninguna etapa avanza sin mi aprobación.'],
-    ],
   },
 }[lang];
 ---
@@ -132,24 +118,6 @@ const copy = {
     )
   }
 
-  <section aria-labelledby="thesis-title">
-    <div class="wrap">
-      <h2 id="thesis-title" class="thesis">
-        <span class="thesis-machine">{copy.machine}</span>
-        <span class="thesis-human">{copy.human}</span>
-      </h2>
-      <div class="grid three">
-        {
-          copy.thesis.map(([h, p]) => (
-            <div>
-              <h3>{h}</h3>
-              <p class="muted">{p}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
 
   <section>
     <div class="wrap">
@@ -176,36 +144,6 @@ const copy = {
       max-width: 20rem;
     }
   }
-  /* The thesis is the brand line, so it heads the section that demonstrates it
-     rather than the hero, where the offer has to come first. */
-  .thesis {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15em;
-  }
-  .thesis-machine {
-    font-family: var(--font-machine);
-    font-size: 0.55em;
-    font-weight: 400;
-    color: var(--muted);
-    letter-spacing: 0;
-  }
-  .thesis-machine::after {
-    content: '▍';
-    color: var(--accent);
-    margin-left: 0.15em;
-    animation: blink 1.1s steps(1) 4 forwards;
-  }
-  .thesis-human {
-    font-style: italic;
-  }
-  @keyframes blink {
-    50%,
-    100% {
-      opacity: 0;
-    }
-  }
-  /* auto-fill would leave an empty third track when a row holds two cards. */
   .two {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   }
