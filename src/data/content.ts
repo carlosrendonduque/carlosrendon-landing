@@ -52,6 +52,21 @@ export const labProjects: Project[] = [
     demo: 'https://github.com/carlosrendonduque/workbrain-mcp#see-it-work',
   },
   {
+    id: 'koombia-mcp',
+    kind: 'ai',
+    name: 'koombia-mcp',
+    tagline: {
+      en: 'A music studio where no stage advances without the artist',
+      es: 'Un estudio de música donde ninguna etapa avanza sin el artista',
+    },
+    body: {
+      en: 'No agent can mark a stage approved, and the tests fuzz every possible action to prove it. Every file records which engine produced it, and the release disclosure is computed from that log.',
+      es: 'Ningún agente puede marcar una etapa como aprobada, y las pruebas hacen fuzzing sobre todas las acciones posibles para demostrarlo. Cada archivo registra qué motor lo produjo, y de ese log sale la declaración de IA del lanzamiento.',
+    },
+    stack: ['MCP', 'Python', 'FastMCP', 'Claude Code'],
+    status: { en: 'Prototype', es: 'Prototipo' },
+  },
+  {
     id: 'bayzara',
     kind: 'ai',
     name: 'Bayzara',

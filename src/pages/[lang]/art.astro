@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { artworks } from '../../data/content';
 import ChatButton from '../../components/ChatButton.astro';
-import { ui, staticLangPaths, type Lang } from '../../i18n/ui';
+import { ui, path, staticLangPaths, type Lang } from '../../i18n/ui';
 
 export const getStaticPaths = staticLangPaths;
 const lang = Astro.params.lang as Lang;
@@ -18,7 +18,8 @@ const copy = {
     worksTitle: 'Works',
     open: 'Open',
     musicTitle: 'Music',
-    music: 'A hobby, not a practice. I work in Ableton with AI in the chain: generated sketches and synthetic voices as raw material, finished by hand. The project is Koombia Mate: cumbia, reggaeton, electronica and punk.',
+    music: 'I built the studio before the songs: a chain where AI proposes at every stage and nothing moves on until I approve it. What a model generates comes in as raw material, never as the result. The project is Koombia Mate: cumbia, reggaeton, electronica and punk.',
+    musicTool: 'The tool is in the lab',
     statementTitle: 'On AI and authorship',
     statement: 'Models propose; I choose, rewrite and sign. When a piece uses generated material, I say so.',
     collabTitle: 'Let’s make something',
@@ -35,7 +36,8 @@ const copy = {
     worksTitle: 'Obras',
     open: 'Abrir',
     musicTitle: 'Música',
-    music: 'Una afición, no un oficio. Trabajo en Ableton con IA en la cadena: bocetos generados y voces sintéticas como materia prima, terminados a mano. El proyecto es Koombia Mate: cumbia, reguetón, electrónica y punk.',
+    music: 'Construí el estudio antes que las canciones: una cadena donde la IA propone en cada etapa y nada avanza sin que yo lo apruebe. Lo que genera un modelo entra como materia prima, nunca como resultado. El proyecto es Koombia Mate: cumbia, reguetón, electrónica y punk.',
+    musicTool: 'La herramienta está en el laboratorio',
     statementTitle: 'Sobre IA y autoría',
     statement: 'Los modelos proponen; yo elijo, reescribo y firmo. Cuando una pieza usa material generado, lo digo.',
     collabTitle: 'Hagamos algo',
@@ -87,6 +89,7 @@ const copy = {
       <div>
         <h2>{copy.musicTitle}</h2>
         <p>{copy.music}</p>
+        <p><a class="card-link" href={`${path(lang, 'lab')}#koombia-mcp`}>{copy.musicTool}</a></p>
       </div>
       <div>
         <h2>{copy.statementTitle}</h2>
